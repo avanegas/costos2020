@@ -19,8 +19,8 @@ class CreatePostsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->mediumText('excerpt');
-            $table->longtext('body');
+            $table->mediumText('excerpt')->nullable();
+            $table->longtext('body')->nullable();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
             $table->timestamps();
 

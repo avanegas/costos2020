@@ -97,11 +97,6 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
-    }
-
     public function image(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable');

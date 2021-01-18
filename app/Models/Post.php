@@ -9,8 +9,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'category_id', 'user_id', 'name', 'slug', 'excerpt', 'body', 'status',
+    protected $guarded = [
+        'id','created_at','updated_at'
+        //'name', 'slug', 'status', 'excerpt', 'body', 'category_id','user_id',
     ];
 
     // Relacion uno a muchos inversa
@@ -24,20 +25,20 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function comments()
-    {
-        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
-    }
-
     //relacion uno a uno polimorfica
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
     }
 
-    //Relacion muchos a muchos
+    //Relacion muchos a muchos polimorfica
     public function tags()
     {
         return $this->morphToMany(Tag::class,'taggable');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
 }

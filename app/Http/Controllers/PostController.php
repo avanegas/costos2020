@@ -7,13 +7,12 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 
-
 class PostController extends Controller
 {
     public function index(){
-        $posts = POst::where('status', 'PUBLISHED')
-            ->latest('id')
-            ->paginate(6);
+        $posts = Post::where('status', 'PUBLISHED')
+                        ->latest('id')
+                        ->paginate(6);
 
         return view('posts.index', compact('posts'));
     }

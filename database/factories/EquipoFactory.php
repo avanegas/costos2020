@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Equipo;
 use App\Models\GrupoEquipo;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EquipoFactory extends Factory
@@ -25,9 +24,9 @@ class EquipoFactory extends Factory
     {
         return [
             'name'            => $this->faker->unique()->sentence(),
-            'marca'           => $this->faker->word(),
-            'tipo'            => $this->faker->word(),
-            'tarifa'          => $this->faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = 10000),
+            'marca'           => $this->faker->word(10),
+            'tipo'            => $this->faker->word(10),
+            'tarifa'          => $this->faker->randomFloat($nbMaxDecimals = 4, $min = 0.1, $max = 100),
             'grupo_equipo_id' => GrupoEquipo::all()->random()->id,
         ];
     }

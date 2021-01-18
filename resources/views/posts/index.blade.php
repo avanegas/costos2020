@@ -5,6 +5,7 @@
                 Apuntes, detalles y teoría de la construcción.
             </h1>
         </div>
+
         @foreach ($posts as $post)
             <div class="flex flex-wrap px-6">
                 <div class="w-full md:px-4 lg:px-6 py-5">

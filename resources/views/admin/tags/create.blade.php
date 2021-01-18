@@ -40,17 +40,17 @@
                     <label for="color">{{ __('Color') }}</label>
                     <div class="col-md">
                         <select name="color" id="" class="form-control">
-                        <option value="gray">Gris</option>
-                        <option value="teal">Cafe</option>
-                        <option value="green">Verde</option>
-                        <option value="yellow">Amarillo</option>
-                        <option value="pink">Rosado</option>
-                        <option value="orange">Naranja</option>
-                        <option value="red">Rojo</option>
-                        <option value="purple">Morado</option>
-                        <option value="indigo">Añil</option>
-                        <option value="blue">Azul</option>
-                    </select>
+                            <option value="gray">Gris</option>
+                            <option value="teal">Cafe</option>
+                            <option value="green">Verde</option>
+                            <option value="yellow">Amarillo</option>
+                            <option value="pink">Rosado</option>
+                            <option value="orange">Naranja</option>
+                            <option value="red">Rojo</option>
+                            <option value="purple">Morado</option>
+                            <option value="indigo">Añil</option>
+                            <option value="blue">Azul</option>
+                        </select>
                         @error('color')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
@@ -67,6 +67,11 @@
         </div>
     </div>
 @stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css"/>
+@stop
+
 @section('js')
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
     <script type="text/javascript" >

@@ -267,39 +267,31 @@ return [
             'label_color' => 'danger',
             'icon_color' =>'green'
         ],
+        ['header' => 'ADMINISTRADOR'],
         [
-            'text' => 'Multilevel',
-            'submenu'=> [
-                [
-                    'text' => 'Nivel 1',
-                    'url' =>'#'
-                ],
-                [
-                    'text' => 'Nivel 1',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'Nivel 1',
-                    'submenu' => [
-                        [
-                            'text' => 'Nivel 2',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'Nivel 2',
-                            'url' => '#',
-                        ]
-                    ]
-                ]
-            ]
+            'text' => 'Categorías',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fab fa-fw fa-buffer',
+            'active' => ['admin/categories*'],
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Etiquetas',
+            'route'  => 'admin.tags.index',
+            'icon' => 'far fa-fw fa-bookmark',
+            'active' => ['admin/tags*'],
         ],
+        ['header' => 'OPCIONES DE BLOG'],
+        [
+            'text'       => 'Lista de post',
+            'route'      => 'admin.posts.index',
+            'icon'       => 'fas fa-fw fa-clipboard',
+        ],
+        [
+            'text'       => 'Crear nuevo post',
+            'route'        => 'admin.posts.create',
+            'icon'       => 'fas fa-fw fa-file',
+        ],
+
         ['header' => 'CONFIGURACION DE CUENTA'],
         [
             'text' => 'profile',
@@ -334,57 +326,6 @@ return [
             ],
         ],
 
-        ['header' => 'ADMINISTRADOR'],
-        [
-            'text' => 'Categorías',
-            'route'  => 'admin.categories.index',
-            'icon' => 'fab fa-fw fa-buffer',
-            'active' => ['admin/categories*'],
-        ],
-        [
-            'text' => 'Etiquetas',
-            'route'  => 'admin.tags.index',
-            'icon' => 'far fa-fw fa-bookmark',
-            'active' => ['admin/tags*'],
-        ],
-        [
-            'text'    => 'Nuevo',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Otro',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
 
 
 
@@ -392,17 +333,8 @@ return [
 
 
 
-        ['header' => 'OPCIONES DE BLOG'],
-        [
-            'text'       => 'Lista de post',
-            'route'      => 'admin.posts.index',
-            'icon'       => 'fas fa-fw fa-clipboard',
-        ],
-        [
-            'text'       => 'Crear nuevo post',
-            'route'        => 'admin.posts.create',
-            'icon'       => 'fas fa-fw fa-file',
-        ],
+
+
     ],
 
     /*

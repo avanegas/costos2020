@@ -23,7 +23,7 @@ class GrupoEquipoFactory extends Factory
     public function definition()
     {
         return [
-            'name'        => $this->faker->unique()->sentence(),
+            'name'        => $this->faker->unique()->word(20),
             'description' => $this->faker->text(100),
             'zona_id'     => Zona::all()->random()->id,
         ];

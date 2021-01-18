@@ -1,9 +1,7 @@
 <x-app-layout>
     <div class="container py-8">
         <h1 class="text-4xl font-bold text-gray-600">{{$post->name}}</h1>
-
         <div class="text-lg text-gray-500 mb-2">{{$post->excerpt}}</div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             {{-- Contenido Principal--}}
@@ -36,28 +34,30 @@
 
         {{-- Comentarios --}}
         <div x-data="{open:false}">
-
             <section class="rounded-b-lg  mt-4 ">
                 @auth
-                    <button x-show="!open" class="bg-blue-200 px-1 py-1 rounded border border-blue-300 text-gray-800 max-w-max shadow-md hover:shadow-lg hover:bg-blue-300 float-right" x-on:click="open=true">COMENTAR !..</button>
-                    <button x-show="open"  class="bg-red-200 px-1 py-1 rounded border border-red-300 text-gray-800 max-w-max shadow-md hover:shadow-lg hover:bg-red-300 float-right" x-on:click="open=true">Mejor NO !..</button>
+                    <button x-show="!open" class="bg-blue-200 px-1 py-1 rounded border border-blue-300 text-gray-800 max-w-max shadow-md hover:shadow-lg hover:bg-blue-300 float-right" x-on:click="open=true">Comentar!</button>
+                    <button x-show="open"  class="bg-red-200 px-1 py-1 rounded border border-red-300 text-gray-800 max-w-max shadow-md hover:shadow-lg hover:bg-red-300 float-right" x-on:click="open=true">Mejor NO!</button>
                 @endauth
+
                 <h3 class="py-2 text-lg flex">Comentarios: &nbsp; <strong> {{$post->comments->count()}}</strong></h3>
                 @guest
-                    <p><small>PARA COMENTAR ES NECESARIO REGISTRARSE</small></p>
+                    <p class="mb-4"><small>PARA COMENTAR ES NECESARIO REGISTRARSE</small></p>
                 @endguest
 
                 <div x-show="open" x-on:click.away="open=false">
-                    <form action="{{route('comments.store', $post)}}" accept-charset="UTF-8" method="post">
-                        <input type="hidden" >
-                        <textarea class="w-full shadow-inner border-0 rounded-lg focus:shadow-outline text-2xl" placeholder="Comentar aqui ..." cols="6" rows="6" id="comment_content" spellcheck="false"></textarea>
-                        <button class="font-bold py-2 px-4 w-full bg-purple-400 text-lg text-white shadow-munded-lg ">Comentar</button>
+                    <form class="m-4 flex" action="{{route('comment.add')}}" accept-charset="UTF-8" method="POST">
+                        @csrf
+                        <input type="hidden" id="post_id" name="post_id" value="{{$post->id}}">
+                        <textarea id="comment" name="comment" class=" w-full rounded-l-lg p-4 border-t mr-0 border-b border-l text-xl text-gray-800 border-gray-200 bg-white" rows="4" placeholder="Comentar aqui ..."></textarea>
+                        <button type="submit" class="px-8 rounded-r-lg bg-red-300 text-xl text-gray-800 font-bold p-4 uppercase border-red-300 border-t border-b border-r">Comentar</button>
                     </form>
                 </div>
 
-                <div id="task-comments" class="pt-4">
-                    @include('comments.list', ['comments' => $post->comments])
+                <div class="card-body">
+                    @include('admin.comments.replies', ['comments' => $post->comments, 'post_id' => $post->id])
                 </div>
+
             </section>
         </div>
     </div>
