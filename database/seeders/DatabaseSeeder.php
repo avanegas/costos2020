@@ -80,6 +80,7 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'writer']);
         $role->givePermissionTo('Create Post');
 
+        // User
         $this->call(UserSeeder::class);
 
         //Category::factory(12)->create();
@@ -117,8 +118,11 @@ class DatabaseSeeder extends Seeder
         Tag::create(['name'  => 'Hierro', 'slug' => 'hierro', 'color' => 'pink']);
         Tag::create(['name'  => 'Suelda', 'slug' => 'suelda', 'color' => 'red']);
         Tag::create(['name'  => 'Aluminio', 'slug' => 'aluminio', 'color' => 'indigo']);
+        
+        // Post
         $this->call(PostSeeder::class);
 
+        // Zona, GrupoEquipo, Equipo, GrupoMaterial, Material, GrupoObrero, Obrero, Transporte.
         Zona::factory(12)->create();
         GrupoEquipo::factory(12)->create();
         Equipo::factory(30)->create();
@@ -127,6 +131,8 @@ class DatabaseSeeder extends Seeder
         GrupoObrero::factory(12)->create();
         Obrero::factory(30)->create();
         Transporte::factory(30)->create();
+
+        
 
     }
 }

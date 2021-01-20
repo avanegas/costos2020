@@ -42,7 +42,7 @@
                             <tr>
                                 <td class="px-2 py-3">{{ $transporte->zona->name }}</td>
                                 <td>{{ $transporte->name }}</td>
-                                <td>{{ $transporte->marca }}</td>
+                                <td>{{ $transporte->unidad }}</td>
                                 <td>{{ $transporte->tipo }}</td>
                                 <td>{{ $transporte->tarifa }}</td>
                                 <td>{{ $transporte->updated_at->format('dMY') }}</td>
