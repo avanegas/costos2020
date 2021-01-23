@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-body">
 
-            <form method="POST" action="{{ route('admin.posts.store') }}">
+            <form method="POST" action="{{ route('admin.posts.store')}}" enctype="multipart/form-data">
                 @csrf
                 <input id="user_id" type="hidden"  name="user_id" value="{{auth()->user()->id}}">
                 <div class="form-group">
@@ -85,6 +85,25 @@
                     @enderror
                 </fieldset>
 
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="image-wrapper">
+                            <img id="picture" src="https://cdn.pixabay.com/photo/2020/02/06/20/01/university-library-4825366_960_720.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="file">Imagen que se mostrara en el post</label>
+                            <input type="file" name="file" id="file" accept="image/*" class="form-control-file @error('file') is-invalid @enderror">
+                            @error('file')
+                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+
+                        </div>
+                        <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dolore officiis architecto laboriosam consequuntur vel et dolorum quidem odit deleniti numquam laudantium magnam, debitis inventore quod! Animi maxime dolor sit!</small>
+                    </div>
+                </div>              
+
                 <div class="form-group">
                     <label for="excerpt">{{ __('Extracto') }}</label>
                     <div class="col-md">
@@ -121,7 +140,19 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @stop
 
 @section('js')
@@ -148,5 +179,20 @@
             .catch( error => {
                 console.error( error );
             } );
+
+        //Cambiar imagen.
+        document.getElementById("file").addEventListener('change', cambiarImagen);
+
+            function cambiarImagen(event){
+                var file = event.target.files[0];
+
+                var reader = new FileReader();
+                reader.onload = (event) => {
+                    document.getElementById("picture").setAttribute('src', event.target.result);
+                };
+
+                reader.readAsDataURL(file);
+            }    
+
     </script>
 @endsection

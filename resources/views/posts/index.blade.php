@@ -11,7 +11,7 @@
                 <div class="w-full md:px-4 lg:px-6 py-5">
                     <div class="bg-white hover:shadow-xl">
 
-                        <article class="w-full h-80 bg-cover bg-center" style="background-image:url({{ Storage::url($post->image->url) }})">
+                        <article class="w-full h-80 bg-cover bg-center" style="background-image:url(@if($post->image) {{Storage::url($post->image->url)}} @else https://cdn.pixabay.com/photo/2020/02/06/20/01/university-library-4825366_960_720.jpg @endif)">
                             <div class="w-full h-full px-8 flex flex-col justify-center">
                                 <h1 class="text-4x1 text-white leading-8 font-bold">
                                     <a href="{{route('posts.category',$post->category)}}" class="uppercase">
@@ -33,7 +33,7 @@
 
                         <div class="px-4 py-4 md:px-10">
                             <p class="py-2">
-                                RESUMEN: {{$post->excerpt}}
+                                RESUMEN: {!!$post->excerpt!!}
                             </p>
                             <div class="flex flex-wrap pt-8">
                                 <div class="w-full md:w-1/3 text-sm font-medium">
