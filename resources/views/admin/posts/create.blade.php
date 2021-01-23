@@ -114,7 +114,6 @@
                     </div>
                 </div>
 
-
                 <div class="form-group">
                     <label for="body">{{ __('Cuerpo del post') }}</label>
                     <div class="col-md">
@@ -124,7 +123,6 @@
                         @enderror
                     </div>
                 </div>
-
 
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary btn-sm">
