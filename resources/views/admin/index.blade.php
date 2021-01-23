@@ -18,21 +18,18 @@
                         <h4>{{ $user->name }}</h4>
                         <h6>{{ $user->roles()->pluck('name')->implode(' ') }}</h6>
                         <em>Ultimo Ingreso: {{ $user->updated_at->formatLocalized('%A %d %B %Y') }}</em>
-                        <em>Fecha de Inicio: {{ $user->created_at->diffForHumans() }}</em>
+                        <em>Fecha de Ingreso: {{ $user->created_at->diffForHumans() }}</em>
                     </li>
                 @endforeach
             </ul>
-        </div>
-        <div class="card-footer">
-            {{$users->links()}}
         </div>
     </div>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css"/>
+    
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    
 @stop

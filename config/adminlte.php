@@ -267,6 +267,7 @@ return [
             'label_color' => 'danger',
             'icon_color' =>'green'
         ],
+        
         ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorías',
@@ -275,24 +276,40 @@ return [
             'active' => ['admin/categories*'],
         ],
         [
-            'text' => 'Etiquetas',
+            'text'   => 'Etiquetas',
             'route'  => 'admin.tags.index',
-            'icon' => 'far fa-fw fa-bookmark',
+            'icon'   => 'far fa-fw fa-bookmark',
             'active' => ['admin/tags*'],
         ],
+
         ['header' => 'OPCIONES DE BLOG'],
         [
-            'text'       => 'Lista de post',
-            'route'      => 'admin.posts.index',
-            'icon'       => 'fas fa-fw fa-clipboard',
+            'text'  => 'Lista de post',
+            'route' => 'admin.posts.index',
+            'icon'  => 'fas fa-fw fa-clipboard',
         ],
         [
-            'text'       => 'Crear nuevo post',
-            'route'        => 'admin.posts.create',
-            'icon'       => 'fas fa-fw fa-file',
+            'text'  => 'Crear nuevo post',
+            'route' => 'admin.posts.create',
+            'icon'  => 'fas fa-fw fa-file',
         ],
 
         ['header' => 'CONFIGURACION DE CUENTA'],
+        [
+            'text'  => 'Areas de actividad ',
+            'route' => 'admin.zonas.index',
+            'icon'  => 'fas fa-fw fa-map-marker',
+        ],
+        [
+            'text'  => 'Grupos de usuario',
+            'route' => 'admin.groups.index',
+            'icon'  => 'fas fa-fw fa-users',
+        ],
+        [
+            'text'  => 'Lista de usuarios',
+            'route' => 'admin.users.index',
+            'icon'  => 'fas fa-fw fa-clipboard',
+        ],        
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -303,37 +320,15 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
         [
-            'text'    => 'Users',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Zonas',
-                    'route'  => 'admin.zonas.index',
-                ],
-                [
-                    'text' => 'Grupos',
-                    'route'  => 'admin.groups.index',
-                ],
-                [
-                    'text' => 'Permisos',
-                    'route'  => 'admin.permissions.index',
-                ],
-                [
-                    'text' => 'Roles',
-                    'route'  => 'admin.roles.index',
-                ],
-            ],
+            'text' => 'Permisos',
+            'route'  => 'admin.permissions.index',
         ],
-
-
-
-
-
-
-
-
-
+        [
+            'text' => 'Roles',
+            'route'  => 'admin.roles.index',
+        ],
 
     ],
 

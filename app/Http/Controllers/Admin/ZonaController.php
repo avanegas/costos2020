@@ -10,14 +10,12 @@ class ZonaController extends Controller
 {
     public function index()
     {
-        $zonas = Zona::latest('id')->paginate(10);
-
-        return view('admin.zonas.index', compact('zonas'));
+        return view('admin.zonas.index');
     }
 
     public function create()
     {
-        //
+        return view('admin.zonas.create');
     }
 
     public function store(Request $request)
@@ -25,22 +23,22 @@ class ZonaController extends Controller
         //
     }
 
-    public function show($id)
+    public function show(Zona $zona)
+    {
+        return view('admin.zonas.show', compact('zona'));
+    }
+
+    public function edit(Zona $zona)
+    {
+        return view('admin.zonas.edit', compact('zona'));
+    }
+
+    public function update(Request $request, Zona $zona)
     {
         //
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
+    public function destroy(Zona $zona)
     {
         //
     }

@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $users = User::latest('id')->paginate(10);
+        $users = User::all();
 
     return view('admin.index', compact('users'));
     }

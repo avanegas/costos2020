@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Post;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class PostsIndex extends Component
+class UsersIndex extends Component
 {
     use WithPagination;
 
@@ -24,12 +24,11 @@ class PostsIndex extends Component
     {
         $searchParams = '%' . $this->search . '%';
 
-        $posts =  Post::where('user_id', auth()->user()->id)
-                    ->where('name', 'LIKE', $searchParams)
+        $users =  User::where('name', 'LIKE', $searchParams)
                     ->latest('id')
                     ->paginate($this->perPage);
 
-        return view('livewire.admin.posts-index', compact('posts'));
+        return view('livewire.admin.users-index', compact('users'));
     }
 
     public function clear()
@@ -37,5 +36,5 @@ class PostsIndex extends Component
         $this->search = '';
         $this->page = 1;
         $this->perPage = '10';
-    }   
+    }
 }
