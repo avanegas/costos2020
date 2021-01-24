@@ -298,12 +298,12 @@ return [
         [
             'text'  => 'Areas de actividad ',
             'route' => 'admin.zonas.index',
-            'icon'  => 'fas fa-fw fa-map-marker',
+            'icon'  => 'fas fa-map-marker-alt',
         ],
         [
             'text'  => 'Grupos de usuario',
             'route' => 'admin.groups.index',
-            'icon'  => 'fas fa-fw fa-users',
+            'icon'  => 'fas fa-users',
         ],
         [
             'text'  => 'Lista de usuarios',
@@ -324,10 +324,12 @@ return [
         [
             'text' => 'Permisos',
             'route'  => 'admin.permissions.index',
+            'icon' => 'fas fa-user-lock',
         ],
         [
             'text' => 'Roles',
             'route'  => 'admin.roles.index',
+            'icon' => 'fas fa-user-tag',
         ],
 
     ],
