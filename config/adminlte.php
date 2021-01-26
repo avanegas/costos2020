@@ -267,8 +267,8 @@ return [
             'label_color' => 'danger',
             'icon_color' =>'green'
         ],
-        
-        ['header' => 'ADMINISTRADOR'],
+
+        ['header' => 'OPCIONES DE BLOG'],
         [
             'text' => 'Categorías',
             'route'  => 'admin.categories.index',
@@ -276,15 +276,13 @@ return [
             'active' => ['admin/categories*'],
         ],
         [
-            'text'   => 'Etiquetas',
+            'text'   => 'Etiquetas (tags)',
             'route'  => 'admin.tags.index',
             'icon'   => 'far fa-fw fa-bookmark',
             'active' => ['admin/tags*'],
-        ],
-
-        ['header' => 'OPCIONES DE BLOG'],
+        ],        
         [
-            'text'  => 'Lista de post',
+            'text'  => 'Artículos (posts)',
             'route' => 'admin.posts.index',
             'icon'  => 'fas fa-fw fa-clipboard',
         ],
@@ -293,6 +291,7 @@ return [
             'route' => 'admin.posts.create',
             'icon'  => 'fas fa-fw fa-file',
         ],
+
 
         ['header' => 'CONFIGURACION DE CUENTA'],
         [
@@ -306,7 +305,7 @@ return [
             'icon'  => 'fas fa-users',
         ],
         [
-            'text'  => 'Lista de usuarios',
+            'text'  => 'Usuarios',
             'route' => 'admin.users.index',
             'icon'  => 'fas fa-fw fa-clipboard',
         ],        
