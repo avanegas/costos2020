@@ -10,9 +10,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::latest('id')->paginate(10);
-
-        return view('admin.categories.index', compact('categories') );
+        return view('admin.categories.index');
     }
 
     public function create()

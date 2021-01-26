@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Tag;
+use Spatie\Permission\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class TagsIndex extends Component
+class RoleIndex extends Component
 {
     use WithPagination;
 
@@ -24,11 +24,11 @@ class TagsIndex extends Component
     {
         $searchParams = '%' . $this->search . '%';
 
-        $tags =  Tag::where('name', 'LIKE', $searchParams)
-                    ->latest('id')
-                    ->paginate($this->perPage);
-                    
-        return view('livewire.admin.tags-index', compact('tags'));
+        $roles =  Role::where('name', 'LIKE', $searchParams)
+            ->latest('id')
+            ->paginate($this->perPage);
+
+        return view('livewire.admin.role-index', compact('roles'));
     }
 
     public function clear()
@@ -36,5 +36,5 @@ class TagsIndex extends Component
         $this->search = '';
         $this->page = 1;
         $this->perPage = '10';
-    }  
+    }      
 }

@@ -1,4 +1,4 @@
-      23012021       |
+      23012021       |     25012021    |
 Frontend
 - Post
 . lista
@@ -21,14 +21,14 @@ Frontend
 - Transportes
 . lista
 
-x-x-x-x-x-x-x-x-x-x- | -x
+x-x-x-x-x-x-x-x-x-x- | -x-x-x-x-x-x-x-x- |
 Backend 
-- Post
-. Lista
+- Post                  - Categoria
+. Lista                 . lista
 . Create
 
-- Users
-. lista
+- Users                 - Tag
+. lista                 . lista
 
 - Zonas
 . lista
