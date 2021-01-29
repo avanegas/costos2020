@@ -23,7 +23,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Permiso</th>
                     <th colspan="2"></th>
                 </tr>
                 </thead>

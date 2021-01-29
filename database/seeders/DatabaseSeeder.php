@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\GrupoPrecio;
 use App\Models\Transporte;
 use App\Models\Obrero;
 use App\Models\GrupoObrero;
@@ -132,7 +133,9 @@ class DatabaseSeeder extends Seeder
         Obrero::factory(30)->create();
         Transporte::factory(30)->create();
 
-        
+        // GrupoPrecio, Precio
+        GrupoPrecio::factory(12)->create();
+        $this->call(PrecioSeeder::class);
 
     }
 }
