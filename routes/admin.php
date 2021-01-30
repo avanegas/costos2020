@@ -26,4 +26,3 @@ Route::post('/reply/store', [CommentController::class,'replyStore'])->name('repl
 
 Route::resource('permissions', PermissionController::class)->names('admin.permissions');
 Route::resource('roles', RoleController::class)->names('admin.roles');
-

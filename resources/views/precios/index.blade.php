@@ -1,5 +1,5 @@
 <x-app-layout>
   <div>
-    Hola desde aqui
+    @livewire('precios')
   </div>
 </x-app-layout>
