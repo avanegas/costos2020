@@ -1,5 +1,5 @@
 <x-app-layout>
-  <div class="container mx-auto px-4 py-2 md:py-24">
+  <div class="container mx-auto"> <!-- px-4 py-2 md:py-24-->
       <div style="width: 28.52%" class="px-2 py-2">
           <div class="text-gray-600 text-sm tracking-wide font-bold text-center">AUTOR: INFOasistencia</div>
       </div>
@@ -12,19 +12,19 @@
         <thead>
             <tr>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">GRUPO:</th>
-              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell"  colspan="4">Hormigón</td>
+              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell"  colspan="4">{{$precio->grupo_precio->name}}</td>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">FECHA:</th>
-              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" >04/01/2021</td>
+              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" >{{$precio->updated_at->isoFormat('MMMM Do YYYY')}}</td>
             </tr>
             <tr>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">RUBRO:</th>
-              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="4">Hormigón 210 kg/cm2</td>
+              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="4">{{$precio->name}}</td>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">UNIDAD:</th>
-              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" >m3</td>
+              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" >{{$precio->unidad}}</td>
             </tr>
             <tr>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">ESPECIFICACION:</th>
-              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium voluptate accusamus, dolores ex enim nam. Similique rerum perferendis </td>
+              <td class="px-2 bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="6">{{$precio->detalle}}</td>
             </tr>
             <tr>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="7">EQUIPOS</td>
@@ -38,105 +38,40 @@
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Rendimiento</th>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Total</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Codigo</span>
-                    1246
-                </td>                
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Descripcion</span>
-                    Concretera
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Cantidad</span>
-                    1
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Tarifa</span>
-                    2.50
-                </td>
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Costo Hora</span>
-                    2.50
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Rendimiento</span>
-                    1
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total</span>
-                    2.50
-                </td>                                        
+        </thead>
+        <tbody>
+
+            @foreach ($precio->equipos as $equipo)
+            <tr>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ $equipo->id }}</td>          
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">{{ $equipo->name }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($equipo->cantidad,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($equipo->tarifa,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format(($equipo->tarifa * $equipo->cantidad),4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($equipo->rendimiento,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format(($equipo->tarifa * $equipo->cantidad * $equipo->rendimiento),4,',',' ') }}</td>
             </tr>
-            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Codigo</span>
-                  1460
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Descripcion</span>
-                  Vibrador
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Cantidad</span>
-                  1
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Tarifa</span>
-                  1.80
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Costo Hora</span>
-                  1.25
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Rendimiento</span>
-                  0.8822
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total</span>
-                  2.50
-              </td>
+            @endforeach
+
+            @for ($i=0; $i < 5 - count($precio->equipos); $i++)
+            <tr>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">ND</td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
             </tr>
-            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
-                    1880
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
-                    Herramientas
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
-                    1
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                    1.1111
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
-                    0.75
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                    2.2222
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total</span>
-                    0.75
-                </td>
-            </tr>                
+            @endfor
+            
             <tr>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="5">MANO DE OBRA</td>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell text-center">Subtotal</td>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell text-center">12.2040</td>
             </tr>
             <!-- FIN EQUIPO -->
+
             <tr>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">&nbsp;</th>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Descripcion</th>
@@ -146,73 +81,38 @@
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Rendimiento</th>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Total</th>
             </tr>
-            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Codigo</span>
-                    1246
-                </td>                
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Descripcion</span>
-                    Maestro
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Cantidad</span>
-                    1
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Tarifa</span>
-                    2.50
-                </td>
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Costo Hora</span>
-                    2.50
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Rendimiento</span>
-                    1
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total</span>
-                    2.50
-                </td>
+
+            @foreach ($precio->obreros as $obrero)
+            <tr>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ $obrero->id }}</td>          
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">{{ $obrero->name }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($obrero->cantidad,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($obrero->jornalhora,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format(($obrero->cantidad * $obrero->jornalhora),4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($obrero->rendimiento,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format(($obrero->jornalhora * $obrero->cantidad * $obrero->rendimiento),4,',',' ') }}</td>
             </tr>
-            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
-                  1460
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
-                  Albañil
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
-                  1.2020
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                  4.2442
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
-                  1.25
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                  2.2424
-              </td>
-              <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total</span>
-                  2.50
-              </td>
+            @endforeach
+
+            @for ($i=0; $i < 7 - count($precio->obreros); $i++)
+            <tr>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">ND</td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
             </tr>
+            @endfor
+
             <tr>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="5">MATERIALES</td>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell text-center">Subtotal</td>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell text-center">25.1234</td>
             </tr>
-            <!-- FIN MANO DE OBRA -->
+            <!-- FIN OBRERO -->
+
             <tr>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">&nbsp;</th>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="2">Descripcion</th>
@@ -221,39 +121,36 @@
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Precio</th>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Total</th>
             </tr>
-            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Codigo</span>
-                    1246
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static" colspan="2">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Descripcion</span>
-                    Cemento
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Unidad</span>
-                    1
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Cantidad</span>
-                    2.50
-                </td>
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Precio</span>
-                    2.50
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total</span>
-                    2.50
-                </td>         
+
+            @foreach ($precio->materials as $material)
+            <tr>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ $material->id }}</td>          
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="2">{{ $material->name }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">{{ $material->unidad }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($material->cantidad,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($material->precio,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format(($material->precio * $material->cantidad),4,',',' ') }}</td>
             </tr>
+            @endforeach
+
+            @for ($i=0; $i < 7 - count($precio->materials); $i++)
+            <tr>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">ND</td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="2"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+            </tr>
+            @endfor
+
             <tr>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="5">TRANSPORTE</td>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell text-center">Subtotal</td>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell text-center">5.2351</td>
             </tr>
             <!-- FIN MATERIALES -->
+
             <tr>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">&nbsp;</th>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="2">Descripcion</th>
@@ -262,33 +159,30 @@
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Tarifa</th>
               <th class="uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">Total</th>
             </tr>
-            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Codigo</span>
-                    4321
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static" colspan="2">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Descripcion</span>
-                    Camión
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Unidad</span>
-                    1
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Cantidad</span>
-                    2.50
-                </td>
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Precio</span>
-                    2.50
-                </td>
-                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total</span>
-                    2.50
-                </td>         
+
+
+            @foreach ($precio->transportes as $transporte)
+            <tr>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ $transporte->id }}</td>          
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="2">{{ $transporte->name }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell">{{ $transporte->unidad }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($transporte->cantidad,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format($transporte->tarifa,4,',',' ') }}</td>
+                <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">{{ number_format(($transporte->tarifa * $transporte->cantidad),4,',',' ') }}</td>
             </tr>
+            @endforeach
+
+            @for ($i=0; $i < 4 - count($precio->transportes); $i++)
+            <tr>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell">ND</td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="2"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+              <td class="px-2 bg-white text-gray-600 border border-gray-300 hidden text-sm text-center font-bold lg:table-cell"></td>
+            </tr>
+            @endfor
+
             <tr>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell" colspan="5"></td>
               <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 hidden text-sm font-bold lg:table-cell text-center">Subtotal</td>
@@ -339,7 +233,7 @@
         <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
             <div class="container mx-auto px-4 py-2 md:py-24">
 
-                <div class="font-bold text-gray-800 text-xl mb-2">
+                <div class="font-bold text-gray-800 text-xl mb-4">
                   Calendario de compromisos
                 </div>
 
@@ -408,14 +302,14 @@
 
             <!-- Modal -->
             <div style=" background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="openEventModal">
-                <div class="p-4 max-w-xl mx-auto relative absolute left-0 right-0 overflow-hidden mt-24">
+                <div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
                     <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer" x-on:click="openEventModal = !openEventModal">
                         <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
                         </svg>
                     </div>
 
-                    <div class="shadow w-full rounded-lg bg-white overflow-hidden w-full block p-8">
+                    <div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">
 
                         <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Actividad</h2>
 
@@ -475,20 +369,20 @@
             days: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
 
             events: [{
-                    event_date: new Date(2021, 0, 1),
-                    event_title: "January Fool's Day",
+                    event_date: new Date(2021, 1, 15),
+                    event_title: "Carnaval",
                     event_theme: 'blue'
                 },
 
                 {
-                    event_date: new Date(2021, 1, 27),
-                    event_title: "Birthday",
-                    event_theme: 'red'
+                    event_date: new Date(2021, 1, 16),
+                    event_title: "Carnaval",
+                    event_theme: 'blue'
                 },
 
                 {
-                    event_date: new Date(2021, 2, 16),
-                    event_title: "Upcoming Event",
+                    event_date: new Date(2021,1 ,27),
+                    event_title: "Birthday",
                     event_theme: 'green'
                 }
             ],
