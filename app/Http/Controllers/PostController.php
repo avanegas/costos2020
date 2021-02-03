@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use Illuminate\Auth\Middleware\authorize;
 
 class PostController extends Controller
 {
@@ -18,6 +19,9 @@ class PostController extends Controller
     }
 
     public function show(Post $post){
+        
+        $this->authorize('published', $post);
+        
         $similares=Post::where('category_id', $post->category_id)
             ->where('id','!=',$post->id)
             ->where('status', 'PUBLISHED')
