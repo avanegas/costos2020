@@ -41,3 +41,7 @@ Route::get('obreros',Obreros::class)->name('obreros');
 Route::get('transportes',Transportes::class)->name('transportes');
 //Route::get('precios', Precios::class)->name('precios');
 Route::resource('precios', PrecioController::class)->names('precios');
+
+Route::get('file-import-export', [PrecioController::class, 'fileImportExport']);
+Route::post('file-import', [PrecioController::class, 'fileImport'])->name('file-import');
+Route::get('file-export', [PrecioController::class, 'fileExport'])->name('file-export');

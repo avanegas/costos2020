@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Precio;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\PreciosImport;
+use App\Exports\PreciosExport;
 
 class PrecioController extends Controller
 {
@@ -82,4 +85,30 @@ class PrecioController extends Controller
     {
         //
     }
+
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function fileImportExport()
+    {
+        return view('file-import');
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function fileImport(Request $request)
+    {
+        Excel::import(new PreciosImport, $request->file('file')->store('temp'));
+        return back();
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function fileExport(Precio $precio)
+    {
+        return Excel::download(new PreciosExport,'precios-collection.xlsx');
+    }    
 }

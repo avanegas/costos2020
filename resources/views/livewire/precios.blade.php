@@ -17,7 +17,7 @@
                     <option value="100">100 por página</option>
                 </select>
             </div>
-            @if($search !=='')
+            @if($search !== '')
                 <button wire:click="clear" class="form-input rounded-md shadow-sm mt-1 ml-6 block">X</button>
             @endif
         </div>
@@ -46,7 +46,7 @@
                             <td>{{ $precio->unidad }}</td>
                             <td>{{ $precio->detalle }}</td>
                             <td>{{ $precio->directo }}</td>
-                            <td>{{ $precio->updated_at->format('dMY') }}</td>
+                            <td>{{ $precio->updated_at->format('m/Y') }}</td>
                             </a>
                             <td>
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
