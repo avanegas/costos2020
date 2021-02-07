@@ -1,4 +1,4 @@
-      23012021       |     25012021    |
+      23012021       |     25012021    | 04022021
 Frontend
 - Post
 . lista
@@ -18,14 +18,21 @@ Frontend
 - Obreros
 . lista
 
-- Transportes
+- Transportes                             
 . lista
+
+- Precios                                 . lista
+                                          . editar
+                                          . excel                                    
 
 x-x-x-x-x-x-x-x-x-x- | -x-x-x-x-x-x-x-x- |
 Backend 
-- Post                  - Categoria
+- Post                  - Categoria       -Post
 . Lista                 . lista
 . Create
+                                          .Edit
+                                          .Update
+                                          .Delete
 
 - Users                 - Tag
 . lista                 . lista

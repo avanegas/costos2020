@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container py-8">
         <h1 class="text-4xl font-bold text-gray-600">{{$post->name}}</h1>
-        <div class="text-lg text-gray-500 mb-2">{!!$post->excerpt!!}</div>
+        <div class="text-lg text-gray-500 mb-2">{!! $post->excerpt !!}</div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             {{-- Contenido Principal--}}
@@ -16,7 +16,7 @@
                     @endif
                 </figure>
 
-                <div class="text-base text-gray-500 mt-4">{!!$post->body!!}</div>
+                <div class="text-base text-gray-500 mt-4">{!! $post->body !!}</div>
             </div>
 
             {{-- Contenido Relacionado --}}

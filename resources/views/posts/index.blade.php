@@ -32,9 +32,7 @@
                         </article>
 
                         <div class="px-4 py-4 md:px-10">
-                            <p class="py-2">
-                                RESUMEN: {!!$post->excerpt!!}
-                            </p>
+                            RESUMEN: <p class="py-2">{!! $post->excerpt !!}</p>
                             <div class="flex flex-wrap pt-8">
                                 <div class="w-full md:w-1/3 text-sm font-medium">
                                     {{$post->created_at->format('l jS \\of F Y h:i A')}}

@@ -1,10 +1,13 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <a href="/" class="flex-shrink-0 flex items-center">
-                <img class="block lg:hidden h-20 w-auto" src="{{asset('img/costos_color_op.svg')}}" alt="Costos">
-                <img class="hidden lg:block h-20 w-auto" src="{{asset('img/costos_color_op.svg')}}" alt="Costos">
-            </a>
+            <div class="w-full sm:max-w-lg bg-gradient-to-r px-24 from-yellow-400 via-red-500 to-pink-500 shadow-md rounded-lg">          
+                <a href="/" class="flex-shrink-0 flex items-center">
+                    <img class="block lg:hidden h-20 w-auto" src="{{asset('img/costos_color_op.svg')}}" alt="Costos">
+                    <img class="hidden lg:block h-20 w-auto" src="{{asset('img/costos_color_op.svg')}}" alt="Costos">
+                </a>
+                <p>Deseo <b>REGISTRARME</b>, soy <i><small>decente</small></i> <b>:)</b></p>
+            </div>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

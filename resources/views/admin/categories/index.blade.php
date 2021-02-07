@@ -8,6 +8,13 @@
 @stop
 
 @section('content')
+    
+    @if (session('info'))
+        <div class="alert alert-success mb-2">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
+
     @livewire('admin.categories-index')
 @stop
 

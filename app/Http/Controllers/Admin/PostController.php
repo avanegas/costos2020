@@ -63,7 +63,7 @@ class PostController extends Controller
             $post->tags()->attach($request->tags);
         }
         
-        return redirect()->route('admin.posts.edit',$post);
+        return redirect()->route('admin.posts.edit',$post)->with('info', 'El post se creó con éxito');
     }
 
     /**
@@ -126,7 +126,7 @@ class PostController extends Controller
             $post->tags()->sync($request->tags);
         }
 
-        return redirect()->route('admin.posts.edit', $post)->with('info', 'El post se realizó con éxito');
+        return redirect()->route('admin.posts.edit', $post)->with('info', 'El post se actualizó con éxito');
     }
 
     /**
