@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\PreciosExport;
-use App\Imports\PreciosImport;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Models\Precio;
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
-class PrecioController extends Controller
+class ProyectoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +14,7 @@ class PrecioController extends Controller
      */
     public function index()
     {
-        return view('precios.index');
+        return view('proyectos.index');
     }
 
     /**
@@ -27,7 +24,7 @@ class PrecioController extends Controller
      */
     public function create()
     {
-        return view('precios.create');
+        //
     }
 
     /**
@@ -47,9 +44,9 @@ class PrecioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Precio $precio)
+    public function show(Proyecto $proyecto)
     {
-        return view('precios.show', compact('precio'));
+        return view('proyectos.show', compact('proyecto'));
     }
 
     /**
@@ -58,9 +55,9 @@ class PrecioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Precio $precio)
+    public function edit($id)
     {
-        return view('precios.edit', compact('precio'));
+        //
     }
 
     /**
@@ -70,7 +67,7 @@ class PrecioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Precio $precio)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -81,34 +78,8 @@ class PrecioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Precio $precio)
+    public function destroy($id)
     {
         //
     }
-
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function fileImportExport()
-    {
-        return view('file-import');
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function fileImport(Request $request)
-    {
-        Excel::import(new PreciosImport, $request->file('file')->store('temp'));
-        return back();
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function fileExport(Precio $precio)
-    {
-        return Excel::download(new PreciosExport,'precios-collection.xlsx');
-    }    
 }

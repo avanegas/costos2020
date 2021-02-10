@@ -15,11 +15,6 @@ use Illuminate\Database\Seeder;
 
 class PrecioSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $precios = Precio::factory(30)->create();
@@ -82,11 +77,5 @@ class PrecioSeeder extends Seeder
                 ]);
             }            
         }
-
-
-
-
-
-
     }
 }

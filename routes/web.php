@@ -5,9 +5,9 @@ use App\Http\Livewire\Equipos;
 use App\Http\Livewire\Materials;
 use App\Http\Livewire\Obreros;
 use App\Http\Livewire\Transportes;
-//use App\Http\Livewire\Precios;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PrecioController;
+use App\Http\Controllers\ProyectoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +39,9 @@ Route::get('equipos',Equipos::class)->name('equipos');
 Route::get('materials',Materials::class)->name('materials');
 Route::get('obreros',Obreros::class)->name('obreros');
 Route::get('transportes',Transportes::class)->name('transportes');
-//Route::get('precios', Precios::class)->name('precios');
 Route::resource('precios', PrecioController::class)->names('precios');
+Route::resource('proyectos', ProyectoController::class)->names('proyectos');
+
 
 Route::get('file-import-export', [PrecioController::class, 'fileImportExport']);
 Route::post('file-import', [PrecioController::class, 'fileImport'])->name('file-import');

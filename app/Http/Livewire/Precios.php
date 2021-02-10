@@ -3,8 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\Precio;
-use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Component;
 
 class Precios extends Component
 {
@@ -17,15 +17,16 @@ class Precios extends Component
 
     public $search = '';
     public $perPage = '10';
+
     public function render()
     {
         $searchParams = '%' . $this->search . '%';
 
         return view('livewire.precios',[
-            'precios' => Precio::where('name', 'LIKE', $searchParams)
-                ->orWhere('unidad', 'LIKE', $searchParams)
-                ->orWhere('detalle', 'LIKE', $searchParams)
-                ->with(['grupo_precio'])->latest()->paginate($this->perPage)            
+                    'precios' => Precio::where('name', 'LIKE', $searchParams)
+                                    ->orWhere('unidad', 'LIKE', $searchParams)
+                                    ->orWhere('detalle', 'LIKE', $searchParams)
+                                    ->with(['grupo_precio'])->latest()->paginate($this->perPage)            
         ]);
     }
 
@@ -35,6 +36,4 @@ class Precios extends Component
         $this->page = 1;
         $this->perPage = '10';
     }
-
-    
 }
