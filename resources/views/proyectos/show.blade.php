@@ -14,14 +14,112 @@
                 </div>
             </div>
         </div>
-
-        <table id="table" class="border-collapse w-full my-4">
-            <thead>
- 
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
+		
+        <div class="bg-white rounded-lg shadow overflow-hidden mt-4">
+			<div class="items-center justify-between py-2 px-6 mt-4">
+                <div class="grid grid-cols-6 bg-teal-100 border px-2 border-gray-200 rounded shadow-md">
+                    <div class="col-span-3">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">PROYECTO</label>
+                        <h6>{{$proyecto->name}}</h6>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">UBICACION</label>
+                        <p>{{$proyecto->ubicacion}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">DISTANCIA</label>
+                        <p>{{$proyecto->distancia}}</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 bg-teal-100 border px-2 border-gray-200 rounded shadow-md">
+                    <div class="col-span-3">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">CONTRATANTE</label>
+                        <p>{{$proyecto->contratante}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" >PRESENTACION</label>
+                        <p>{{$proyecto->entrega}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">FORMA</label>
+                        <p>{{$proyecto->formato}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">DECIMALES</label>
+                        <p>{{$proyecto->precision}}</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 bg-teal-100 px-2 border border-gray-200 rounded shadow-md">
+                    <div class="col-span-2">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">OFERENTE</label>
+                        <p>{{$proyecto->oferente}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">REPRESENTANTE</label>
+                        <p>{{$proyecto->representante}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">REFERENCIAL</label>
+                        <p>{{$proyecto->referencial}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">COSTO</label>
+                        <p>{{$proyecto->indirecto}}</p>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">I.V.A.</label>
+                        <p>{{$proyecto->impuesto}}</p>
+                    </div>
+                </div>
+            </div>
+            <table id="table" class="border-collapse w-full my-4">
+                <thead>
+                    <tr>
+                        <th class='mt-3 px-4 py-1'  colspan="7">
+                            <p class="text-gray-600 text-lg uppercase tracking-wide font-bold text-center mb-3">TABLA DE DESCRIPCION DE RUBROS, UNIDADES, CANTIDADES Y PRECIOS</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" style=" width:10%;">ID</th>
+                        <th class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" style=" width:10%;">RUBRO Nº</th>
+                        <th class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">DESCRIPCION</th>
+                        <th class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" style=" width:10%;">UNIDAD</th>
+                        <th class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" style=" width:10%;">CANTIDAD</th>
+                        <th class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" style=" width:10%;">PRECIO</th>
+                        <th class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" style=" width:10%;">TOTAL</th>
+                    </tr>  
+                </thead>
+                <tbody>
+                    @foreach ($proyecto->rubros as $rubro)
+                    <tr>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->precio_id}}</td>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->orden}}</td>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->rubro}}</td>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->unidad}}</td>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->cantidad}}</td>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->precio}}</td>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->cantidad * $rubro->precio}}</td>
+                    </tr>
+                    @endforeach
+                    <tfoot>
+                        <tr>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" colspan="5"></td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center"> Subtotal</td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">{{ $proyecto->sub_total }}</td>
+                        </tr>
+                        <tr>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" colspan="5"></td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">IVA %</td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">{{ $proyecto->impuesto }}</td>
+                        </tr>
+                        <tr>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" colspan="5"></td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">Total</td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">{{ $proyecto->gran_total }}</td>
+                        </tr>
+                    </tfoot>    
+                </tbody>
+            </table>
+        </div>  
     </div>
-    </x-app-layout>
+</x-app-layout>

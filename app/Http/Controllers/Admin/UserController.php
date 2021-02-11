@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -58,7 +59,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        $roles = Role::all();
+        return view('admin.users.edit', compact('user','roles'));
     }
 
     /**
@@ -70,7 +72,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        
+        $user->roles()->sync($request->roles);
+
+       return redirect()->route('admin.users.edit', $user)->with('info', 'Se asignó los roles correctamente');
     }
 
     /**
