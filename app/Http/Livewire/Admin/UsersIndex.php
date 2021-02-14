@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\User;
-use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Component;
 
 class UsersIndex extends Component
 {

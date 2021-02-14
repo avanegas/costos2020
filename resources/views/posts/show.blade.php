@@ -21,7 +21,7 @@
 
             {{-- Contenido Relacionado --}}
             <aside>
-                <h1 class="text-2xl font-bold text-gray-600 mb-4">Más en <span class="uppercase">{{$post->category->name}}</span></h1>
+                <h1 class="font-bold text-gray-700 mb-4">Más en... <span >{{$post->category->name}}</span></h1>
                 <ul>
                     @foreach ($similares as $similar)
                         <li class="mb-4">

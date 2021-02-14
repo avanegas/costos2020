@@ -15,7 +15,21 @@ class CreateProyectoMaterialsTable extends Migration
     {
         Schema::create('proyecto_materials', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->bigInteger('proyecto_id')->unsigned();            
+            $table->bigInteger('material_id')->unsigned();
+            $table->string('name')->unique();
+            $table->string('unidad');
+            $table->string('precio');
+            $table->double('cantidad', 10, 4);
+
+            //relation
+            $table->foreign('proyecto_id')->references('id')->on('proyectos')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+
+            $table->foreign('material_id')->references('id')->on('materials')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

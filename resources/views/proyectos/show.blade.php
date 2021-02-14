@@ -17,57 +17,57 @@
 		
         <div class="bg-white rounded-lg shadow overflow-hidden mt-4">
 			<div class="items-center justify-between py-2 px-6 mt-4">
-                <div class="grid grid-cols-6 bg-teal-100 border px-2 border-gray-200 rounded shadow-md">
+                <div class="grid grid-cols-6 bg-white px-2">
                     <div class="col-span-3">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">PROYECTO</label>
-                        <h6>{{$proyecto->name}}</h6>
+                        <label class="text-gray-800 text-sm font-bold"> PROYECTO</label>
+                        <p>{{$proyecto->name}}</p>
                     </div>
                     <div class="col-span-2">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">UBICACION</label>
+                        <label class="text-gray-800 text-sm font-bold"> UBICACION</label>
                         <p>{{$proyecto->ubicacion}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">DISTANCIA</label>
+                        <label class="text-gray-800 text-sm font-bold"> DISTANCIA</label>
                         <p>{{$proyecto->distancia}}</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-6 bg-teal-100 border px-2 border-gray-200 rounded shadow-md">
+                <div class="grid grid-cols-6 bg-white px-2">
                     <div class="col-span-3">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">CONTRATANTE</label>
+                        <label class="text-gray-800 text-sm font-bold"> CONTRATANTE</label>
                         <p>{{$proyecto->contratante}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" >PRESENTACION</label>
+                        <label class="text-gray-800 text-sm font-bold"> PRESENTACION</label>
                         <p>{{$proyecto->entrega}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">FORMA</label>
+                        <label class="text-gray-800 text-sm font-bold"> FORMA</label>
                         <p>{{$proyecto->formato}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">DECIMALES</label>
+                        <label class="text-gray-800 text-sm font-bold"> DECIMALES</label>
                         <p>{{$proyecto->precision}}</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-6 bg-teal-100 px-2 border border-gray-200 rounded shadow-md">
+                <div class="grid grid-cols-6 bg-white px-2">
                     <div class="col-span-2">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">OFERENTE</label>
+                        <label class="text-gray-800 text-sm font-bold"> OFERENTE</label>
                         <p>{{$proyecto->oferente}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">REPRESENTANTE</label>
+                        <label class="text-gray-800 text-sm font-bold"> REPRESENTANTE</label>
                         <p>{{$proyecto->representante}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">REFERENCIAL</label>
+                        <label class="text-gray-800 text-sm font-bold"> REFERENCIAL</label>
                         <p>{{$proyecto->referencial}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">COSTO</label>
-                        <p>{{$proyecto->indirecto}}</p>
+                        <label class="text-gray-800 text-sm font-bold"> COSTO</label>
+                        <p>{{$proyecto->gran_total}}</p>
                     </div>
                     <div class="col-span-1">
-                        <label class="bg-gray-200 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">I.V.A.</label>
+                        <label class="text-gray-800 text-sm font-bold">I.V.A.</label>
                         <p>{{$proyecto->impuesto}}</p>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <tr>
                         <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->precio_id}}</td>
                         <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->orden}}</td>
-                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->rubro}}</td>
+                        <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell">{{$rubro->rubro}}</td>
                         <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->unidad}}</td>
                         <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->cantidad}}</td>
                         <td class="px-2 bg-white text-gray-600 border border-gray-300 text-sm text-center font-bold lg:table-cell">{{$rubro->precio}}</td>
@@ -109,8 +109,8 @@
                         </tr>
                         <tr>
                             <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" colspan="5"></td>
-                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">IVA %</td>
-                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">{{ $proyecto->impuesto }}</td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">IVA {{ $proyecto->impuesto }}%</td>
+                            <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell text-center">{{ $proyecto->sub_total * $proyecto->impuesto/100 }}</td>
                         </tr>
                         <tr>
                             <td class="px-2 uppercase bg-gray-100 text-gray-600 border border-gray-300 text-sm font-bold lg:table-cell" colspan="5"></td>

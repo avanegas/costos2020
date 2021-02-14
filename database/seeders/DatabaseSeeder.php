@@ -16,8 +16,6 @@ use App\Models\Group;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
@@ -61,26 +59,8 @@ class DatabaseSeeder extends Seeder
 
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-
-        // create permissions
-        Permission::create(['name' => 'Administer roles & permissions']);
-        Permission::create(['name' => 'Create Post']);
-        Permission::create(['name' => 'Edit Post']);
-        Permission::create(['name' => 'Delete Post']);
-        Permission::create(['name' => 'Publish Post']);
-        Permission::create(['name' => 'Unpublish Post']);
-        Permission::create(['name' => 'Comment Post']);
-
-        // create roles and assign existing permissions
-        $role = Role::create(['name' => 'admin']);
-        $role->givePermissionTo(['Administer roles & permissions', 'Create Post', 'Edit Post', 'Delete Post',  'Publish Post', 'Unpublish Post', 'Comment Post']);
-
-        $role = Role::create(['name' => 'user']);
-        $role->givePermissionTo('Comment Post');
-
-        $role = Role::create(['name' => 'writer']);
-        $role->givePermissionTo('Create Post');
-
+        $this->call(RoleSeeder::class);
+        
         // User
         $this->call(UserSeeder::class);
 
@@ -119,27 +99,37 @@ class DatabaseSeeder extends Seeder
         Tag::create(['name'  => 'Hierro', 'slug' => 'hierro', 'color' => 'pink']);
         Tag::create(['name'  => 'Suelda', 'slug' => 'suelda', 'color' => 'red']);
         Tag::create(['name'  => 'Aluminio', 'slug' => 'aluminio', 'color' => 'indigo']);
-        
+
         // Post
         $this->call(PostSeeder::class);
 
-        // Zona, GrupoEquipo, Equipo, GrupoMaterial, Material, GrupoObrero, Obrero, Transporte.
+        // Zona
         Zona::factory(12)->create();
+        
+        // GrupoEquipo, Equipo
         GrupoEquipo::factory(12)->create();
         Equipo::factory(30)->create();
+        
+        // GrupoMaterial, Material
         GrupoMaterial::factory(12)->create();
         Material::factory(30)->create();
+        
+        // GrupoObrero, Obrero
         GrupoObrero::factory(12)->create();
         Obrero::factory(30)->create();
+        
+        // Transporte.
         Transporte::factory(30)->create();
 
-        // GrupoPrecio, Precio
+        // GrupoPrecio, Precio Unitario
         GrupoPrecio::factory(12)->create();
         $this->call(PrecioSeeder::class);
 
         //Presupuesto
         $this->call(ProyectoSeeder::class);
 
+        // Oferta
+        $this->call(OfertaSeeder::class);
     }
 }
 

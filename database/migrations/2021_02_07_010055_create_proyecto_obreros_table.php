@@ -15,7 +15,21 @@ class CreateProyectoObrerosTable extends Migration
     {
         Schema::create('proyecto_obreros', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->bigInteger('proyecto_id')->unsigned();
+            $table->bigInteger('obrero_id')->unsigned();
+            $table->string('name')->unique();
+            $table->string('jornalhora');
+            $table->double('cantidad', 10, 4);
+            $table->string('factor');
+
+            //relation
+            $table->foreign('proyecto_id')->references('id')->on('proyectos')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+
+            $table->foreign('obrero_id')->references('id')->on('obreros')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

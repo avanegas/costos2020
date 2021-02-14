@@ -40,14 +40,12 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                     @foreach($precios as $key=>$precio)
                         <tr>
-                            <a href="#">
                             <td class="px-2 py-3">{{ $precio->grupo_precio->name }}</td>
                             <td><a class="" href="{{url('precios', $precio)}}">{{ $precio->name }}</a></td>
                             <td>{{ $precio->unidad }}</td>
                             <td>{{ $precio->detalle }}</td>
                             <td>{{ $precio->directo }}</td>
                             <td>{{ $precio->updated_at->format('m/Y') }}</td>
-                            </a>
                             <td>
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                                         Proveedor

@@ -13,19 +13,15 @@
 
                         <article class="w-full h-80 bg-cover bg-center" style="background-image:url(@if($post->image) {{Storage::url($post->image->url)}} @else https://cdn.pixabay.com/photo/2020/02/06/20/01/university-library-4825366_960_720.jpg @endif)">
                             <div class="w-full h-full px-8 flex flex-col justify-center">
-                                <h1 class="text-4x1 text-white leading-8 font-bold">
-                                    <a href="{{route('posts.category',$post->category)}}" class="uppercase">
-                                        {{$post->category->name}}
-                                    </a>
-                                </h1>
-                                <h1 class="text-4x1 text-white leading-8 font-bold mt-2">
-                                    <a href="{{route('posts.show',$post)}}">
-                                        {{$post->name}}
-                                    </a>
-                                </h1>
+                                <p class="text-sm text-white font-bold">
+                                    <a href="{{route('posts.category',$post->category)}}" class="uppercase"> {{$post->category->name}} </a>
+                                </p>
+                                <p class="text-4x1 text-white leading-6 font-bold mt-2 uppercase">
+                                    <a href="{{route('posts.show',$post)}}"> {{$post->name}}</a>
+                                </p>
                                 <div>
                                     @foreach ($post->tags as $tag)
-                                        <a href="{{route('posts.tag', $tag)}}" class="inline-block px-3 h-6 bg-{{$tag->color}}-600 text-white rounded-full"> {{$tag->name}}</a>
+                                        <a href="{{route('posts.tag', $tag)}}" class="inline-block px-2 h-6 bg-{{$tag->color}}-600 text-white rounded-full"> {{$tag->name}}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -46,7 +42,7 @@
                                         <a href="" class="text-blue-500 px-1 ">
                                             TWITTER
                                         </a>
-                                        <a href="" class="text-red-600 px-1 ">
+                                        <a href="{{route('posts.show',$post)}}" class="text-blue-600 px-1 ">
                                             Comentarios: {{$post->comments->count()}}
                                         </a>
                                     </div>

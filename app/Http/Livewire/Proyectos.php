@@ -23,11 +23,12 @@ class Proyectos extends Component
         $searchParams = '%' . $this->search . '%';
 
         return view('livewire.proyectos',[
-                    'proyectos' => Proyecto::where('name', 'LIKE', $searchParams)
-                                        ->orWhere('contratante', 'LIKE', $searchParams)
-                                        ->orWhere('ubicacion', 'LIKE', $searchParams)
-                                        ->orWhere('oferente', 'LIKE', $searchParams)
-                                        ->latest()->paginate($this->perPage)              
+
+            'proyectos' => Proyecto::where('name', 'LIKE', $searchParams)
+                                    ->orWhere('contratante', 'LIKE', $searchParams)
+                                    ->orWhere('ubicacion', 'LIKE', $searchParams)
+                                    ->orWhere('oferente', 'LIKE', $searchParams)
+                                    ->latest()->paginate($this->perPage)              
         ]);
     }
 

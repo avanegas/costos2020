@@ -15,7 +15,22 @@ class CreateProyectoEquiposTable extends Migration
     {
         Schema::create('proyecto_equipos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->bigInteger('proyecto_id')->unsigned();           
+            $table->bigInteger('equipo_id')->unsigned();
+            $table->string('name')->unique();
+            $table->string('marca')->nullable();
+            $table->string('tipo')->nullable();
+            $table->double('cantidad', 10, 4);
+            $table->double('tarifa', 10, 4);            
+
+            //relation
+            $table->foreign('proyecto_id')->references('id')->on('proyectos')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+
+            $table->foreign('equipo_id')->references('id')->on('equipos')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

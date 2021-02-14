@@ -23,11 +23,11 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th width="10px">ID</th>
                         <th>Nombres</th>
                         <th>Roles</th>
                         <th>Permisos</th>
-                        <th colspan="2"></th>
+                        <th width="10px"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,14 +40,7 @@
                             <td>
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}">Editar</a>
                             </td>
-                            <td with="10px">
-                                <form action="{{route('admin.users.destroy', $user)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
 
-                                    <button class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td>
                         </tr>
                     @endforeach
                 </tbody>

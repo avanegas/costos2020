@@ -19,7 +19,7 @@ Route::resource('groups', GroupController::class)->names('admin.groups');
 Route::resource('categories', CategoryController::class)->names('admin.categories');
 Route::resource('tags', TagController::class)->names('admin.tags');
 Route::resource('posts', PostController::class)->names('admin.posts');
-Route::resource('users', UserController::class)->names('admin.users');
+Route::resource('users', UserController::class)->only('index', 'edit', 'update')->names('admin.users');
 
 Route::post('/comments/store', [CommentController::class,'store'])->name('comment.add');
 Route::post('/reply/store', [CommentController::class,'replyStore'])->name('reply.add');

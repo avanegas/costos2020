@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Comment;
 use App\Models\Image;
-use Illuminate\Database\Seeder;
 use App\Models\Post;
+use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder
 {
