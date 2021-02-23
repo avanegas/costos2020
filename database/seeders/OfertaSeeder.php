@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Image;
-use App\MOdels\Oferta;
+use App\Models\Oferta;
 use Illuminate\Database\Seeder;
 
 class OfertaSeeder extends Seeder

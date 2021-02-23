@@ -33,14 +33,18 @@
                              <td>{{$tag->id}}</td>
                              <td>{{$tag->name}}</td>
                              <td width="10px">
-                                 <a href="{{route('admin.tags.edit', $tag)}}" class="btn btn-sm btn-primary">Edit</a>
+                                @can('admin.tags.edit')
+                                    <a href="{{route('admin.tags.edit', $tag)}}" class="btn btn-sm btn-primary">Edit</a>
+                                @endcan
                              </td>
                              <td width="10px">
-                                 <form action="{{route('admin.tags.destroy', $tag)}}" method="POST">
-                                     @csrf
-                                     @method('delete')
-                                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                 </form>
+                                @can('admin.tags.destroy')
+                                    <form action="{{route('admin.tags.destroy', $tag)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                @endcan
                              </td>
                          </tr>
                     @endforeach

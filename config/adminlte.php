@@ -233,25 +233,25 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
+            'text'   => 'search',
             'search' => true,
             'topnav' => true,
-            'url' => '',
+            'url'    => '',
             'method' => 'post'
         ],
         [
-            'text' => 'link 1',
-            'url' => '#',
+            'text'   => 'link 1',
+            'url'    => '#',
             'topnav' => true
         ],
         [
             'text' => 'link 2',
-            'url' => '#',
+            'url'  => '#',
             'topnav_right' => true
         ],
         [
             'text' => 'link 3',
-            'url' => '#',
+            'url'  => '#',
             'topnav_user' => true
         ],
         [
@@ -260,36 +260,41 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text' =>'Dashboard',
+            'text'  =>'Dashboard',
             'route' => 'admin.home',
-            'icon' => 'fas fa-fw fa-home',
+            'icon'  => 'fas fa-fw fa-home',
             'label' => 'Inicio',
             'label_color' => 'danger',
-            'icon_color' =>'green'
+            'icon_color'  =>'green',
+            'can'   => 'admin.home',
         ],
 
         ['header' => 'OPCIONES DE BLOG'],
         [
-            'text' => 'Categorías',
+            'text'   => 'Categorías',
             'route'  => 'admin.categories.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon'   => 'fab fa-fw fa-buffer',
             'active' => ['admin/categories*'],
+            'can'    => 'admin.categories.index',
         ],
         [
             'text'   => 'Etiquetas (tags)',
             'route'  => 'admin.tags.index',
             'icon'   => 'far fa-fw fa-bookmark',
             'active' => ['admin/tags*'],
+            'can'    => 'admin.tags.index',
         ],        
         [
             'text'  => 'Artículos (posts)',
             'route' => 'admin.posts.index',
             'icon'  => 'fas fa-fw fa-clipboard',
+            'can'    => 'admin.posts.index',
         ],
         [
-            'text'  => 'Crear nuevo post',
+            'text'  => 'Crear nuevo artículo (post)',
             'route' => 'admin.posts.create',
             'icon'  => 'fas fa-fw fa-file',
+            'can'    => 'admin.posts.create',
         ],
 
 
@@ -298,16 +303,20 @@ return [
             'text'  => 'Areas de actividad ',
             'route' => 'admin.zonas.index',
             'icon'  => 'fas fa-map-marker-alt',
+            'can'    => 'admin.zonas.index'
         ],
         [
             'text'  => 'Grupos de usuario',
             'route' => 'admin.groups.index',
             'icon'  => 'fas fa-users',
+            'can'   => 'admin.users.index',
+            'can'    => 'admin.groups.index'
         ],
         [
             'text'  => 'Usuarios',
             'route' => 'admin.users.index',
             'icon'  => 'fas fa-fw fa-clipboard',
+            'can'    => 'admin.users.index'
         ],        
         [
             'text' => 'profile',
@@ -321,14 +330,16 @@ return [
         ],
 
         [
-            'text' => 'Permisos',
-            'route'  => 'admin.permissions.index',
-            'icon' => 'fas fa-user-lock',
+            'text'  => 'Permisos',
+            'route' => 'admin.permissions.index',
+            'icon'  => 'fas fa-user-lock',
+            'can'    => 'admin.permissions.index'
         ],
         [
-            'text' => 'Roles',
-            'route'  => 'admin.roles.index',
-            'icon' => 'fas fa-user-tag',
+            'text'  => 'Roles',
+            'route' => 'admin.roles.index',
+            'icon'  => 'fas fa-user-tag',
+            'can'    => 'admin.roles.index'
         ],
 
     ],

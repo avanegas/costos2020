@@ -3,7 +3,9 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    <a href="{{route('admin.tags.create')}}" class="btn btn-secondary btn-sm float-right">Nueva etiqueta</a>
+    @can('admin.tags.create')
+        <a href="{{route('admin.tags.create')}}" class="btn btn-secondary btn-sm float-right">Nueva etiqueta</a>
+    @endcan
     <h1>Listado de etiquetas para artículo.</h1>
 @stop
 

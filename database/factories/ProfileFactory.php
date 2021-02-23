@@ -12,7 +12,7 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            'bio'   => $this->faker->word(100),
+            'bio'   => $this->faker->text(100),
             'phone' => $this->faker->phoneNumber,
             'twitter_username' => '@' . $this->faker->word(10),
             'github_username'  => 'http://' . $this->faker->word(10) . '.github.io',

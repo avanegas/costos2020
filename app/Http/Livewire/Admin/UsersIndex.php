@@ -25,6 +25,7 @@ class UsersIndex extends Component
         $searchParams = '%' . $this->search . '%';
 
         $users =  User::where('name', 'LIKE', $searchParams)
+                    ->orwhere('email', 'LIKE', $searchParams)
                     ->latest('id')
                     ->paginate($this->perPage);
 

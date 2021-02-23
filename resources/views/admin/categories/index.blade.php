@@ -3,7 +3,9 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    <a href="{{route('admin.categories.create')}}" class="btn btn-secondary btn-sm float-right">Nueva categoría</a>
+    @can('admin.categories.create')
+        <a href="{{route('admin.categories.create')}}" class="btn btn-secondary btn-sm float-right">Nueva categoría</a>
+    @endcan
     <h1>Listado categorias para artículos.</h1>
 @stop
 

@@ -26,36 +26,20 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('posts');
         Storage::makeDirectory('posts');
 
-        //Group
-        Group::create(['name' => 'ND']);
+        // Group
         Group::create(['name' => 'ARQUITECTO']);
+        Group::create(['name' => 'CONSTRUCTORA']);
         Group::create(['name' => 'INGENIERO']);
         Group::create(['name' => 'ESPECIALISTA']);
+        Group::create(['name' => 'ESTUDIOS']);
         Group::create(['name' => 'OBRERO']);
         Group::create(['name' => 'PROFESIONAL']);
         Group::create(['name' => 'PROVEEDOR']);
 
-        //Page
-        Page::create([
-            'parent_id' => 1,
-            'title'     => 'Quienes somos',
-            'slug'      => 'quienes-somos',
-            'content'   => 'Contenido de quienes somos'
-        ]);
-
-        Page::create([
-            'parent_id' => 1,
-            'title'     => 'Misión',
-            'slug'      => 'mision',
-            'content'   => 'Contenido de mision'
-        ]);
-
-        Page::create([
-            'parent_id' => 1,
-            'title'     => 'Visión',
-            'slug'      => 'vision',
-            'content'   => 'Contenido de vision'
-        ]);
+        // Page
+        Page::create(['parent_id' => 1, 'title'=> 'Quienes somos', 'slug' => 'quienes-somos', 'content' => 'Contenido de quienes somos']);
+        Page::create(['parent_id' => 1, 'title' => 'Misión', 'slug' => 'mision', 'content' => 'Contenido de mision']);
+        Page::create(['parent_id' => 1, 'title' => 'Visión', 'slug' => 'vision', 'content' => 'Contenido de vision']);
 
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
@@ -64,7 +48,7 @@ class DatabaseSeeder extends Seeder
         // User
         $this->call(UserSeeder::class);
 
-        //Category::factory(12)->create();
+        // Category::factory(12)->create();
         Category::create(['name'  => 'Arquitectura', 'slug' => 'arquitectura']);
         Category::create(['name'  => 'Biblioteca', 'slug' => 'biblioteca']);
         Category::create(['name'  => 'Diseño arquitectónico', 'slug' => 'diseno-arquitectonico']);
@@ -78,7 +62,7 @@ class DatabaseSeeder extends Seeder
         Category::create(['name'  => 'Materiales para revestimientos de pisos y paredes', 'slug' => 'materiales-para-revestimientos-de-pisos-y-paredes']);
         Category::create(['name'  => 'Normas constructivas', 'slug' => 'normas-constructivas']);
 
-        //Tag::factory(12)->create();
+        // Tag::factory(12)->create();
         Tag::create(['name'  => 'Arquitectura', 'slug' => 'arquitectura', 'color' => 'red']);
         Tag::create(['name'  => 'Ingeniería', 'slug' => 'ingenieria', 'color' => 'indigo']);
         Tag::create(['name'  => 'Costo', 'slug' => 'costo', 'color' => 'purple']);
@@ -118,18 +102,17 @@ class DatabaseSeeder extends Seeder
         GrupoObrero::factory(12)->create();
         Obrero::factory(30)->create();
         
-        // Transporte.
+        // Transporte
         Transporte::factory(30)->create();
 
         // GrupoPrecio, Precio Unitario
         GrupoPrecio::factory(12)->create();
         $this->call(PrecioSeeder::class);
 
-        //Presupuesto
+        // Presupuesto
         $this->call(ProyectoSeeder::class);
 
         // Oferta
         $this->call(OfertaSeeder::class);
     }
 }
-

@@ -25,6 +25,7 @@
                     <tr>
                         <th width="10px">ID</th>
                         <th>Nombres</th>
+                        <th>Email</th>
                         <th>Roles</th>
                         <th>Permisos</th>
                         <th width="10px"></th>
@@ -35,6 +36,7 @@
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
                             <td>{{ $user->roles()->pluck('name')->implode(', ') }}</td>
                             <td>{{ $user->getAllPermissions()->pluck('name')->implode(', ') }}</td>
                             <td>

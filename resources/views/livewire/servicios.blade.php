@@ -1,11 +1,11 @@
 <div class="container py-8">
     <div class="flex pb-6 ">
         <p class="flex-initial text-2xl font-black text-gray-900 px-6 md:px-12">
-            Servicios de construcción.
+            Servicios.
         </p>
 
         @foreach ($groups as $group)
-            <a href="#" wire:model="servicio" class="flex-initial bg-gray-300 font-bold px-2 py-1.5 rounded-md hover:bg-gray-200 mr-2"> {{$group->name}}</a>
+            <button wire:click="servicio({{$group}})" class="flex-initial bg-gray-300 font-bold px-2 py-1.5 rounded-md hover:bg-gray-200 mr-2"> {{$group->name}}</button>
         @endforeach
 
     </div>

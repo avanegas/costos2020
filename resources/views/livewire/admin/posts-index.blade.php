@@ -25,7 +25,7 @@
                         <th>ID</th>
                         <th>Título del artículo</th>
                         <th>Creado</th>
-                        <th colspan="2">Acciones</th>
+                        <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,14 +34,13 @@
                             <td>{{$post->id}}</td>
                             <td>{{$post->name}}</td>
                             <td>{{$post->created_at->diffForHumans()}}</td>
-                            <td>
+                            <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.posts.edit', $post)}}">Editar</a>
                             </td>
-                            <td with="10px">
+                            <td width="10px">
                                 <form action="{{route('admin.posts.destroy', $post)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
                                 </form>
                             </td>

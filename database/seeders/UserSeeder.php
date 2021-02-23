@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $role_admin = Role::where('name', 'admin')->first();
-        $role_user = Role::where('name', 'user')->first();
+        $role_admin = Role::where('name', 'Admin')->first();
+        $role_user = Role::where('name', 'User')->first();
 
         $user = User::create([
             'name'       => 'Angel Vanegas',
@@ -34,8 +34,7 @@ class UserSeeder extends Seeder
             'profile_id' => $user->id
         ]);
         $user->groups()->attach([
-            rand(1,3),
-            rand(4,7)
+            rand(1,8)
         ]);
         $user->image()->save(Image::factory()->make([
             'url' => 'persona0.jpeg'
@@ -52,8 +51,7 @@ class UserSeeder extends Seeder
                 'profile_id' => $user->id
             ]);
             $user->groups()->attach([
-                rand(1,3),
-                rand(4,7)
+                rand(1,8)
             ]);
             $user->image()->save(Image::factory()->make([
                 'url' => 'profile.png'
