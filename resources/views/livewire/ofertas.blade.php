@@ -50,11 +50,11 @@
                             </div>
 
                             <a href="{{url('ofertas', $oferta)}}">
-                            <div class="px-2 pt-2 pb-2">
-                                <span class="inline-block bg-yellow-200 rounded-full px-2 py-1 text-sm font-bold text-blue-700 mr-2 mb-2">{{$oferta->updated_at->diffForHumans()}}</span>
-                                <span class="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">TWITTER</span>
-                                <span class="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $oferta->file }}</span>
-                            </div>
+                                <div class="px-2 pt-2 pb-2">
+                                    <span class="inline-block bg-yellow-200 rounded-full px-2 py-1 text-sm font-bold text-blue-700 mr-2 mb-2">{{$oferta->updated_at->diffForHumans()}}</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">TWITTER</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $oferta->file }}</span>
+                                </div>
                             </a>
                             
                             <div class="flex space-x-3 mb-4 text-sm font-medium">

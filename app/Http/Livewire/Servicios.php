@@ -19,12 +19,11 @@ class Servicios extends Component
     public $search = '';
     public $perPage = '10';
     public $groups;
-    public Group $group;
+    public $group;
     
     public function mount()
     {
         $this->groups = Group::orderBy('name', 'asc')->get();
-        $this->group  = Group::first();
     }
 
     public function render()
