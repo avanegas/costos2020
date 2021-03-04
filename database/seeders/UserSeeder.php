@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'url' => 'persona0.jpeg'
         ]));
 
-        $users = User::factory(29)->create();
+        $users = User::factory(49)->create();
 
         foreach($users as $user){
             $user->roles()->attach($role_user);

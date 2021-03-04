@@ -10,7 +10,7 @@ class GrupoEquipo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'slug',
+        'name', 'description',
     ];
 
     public function zona()

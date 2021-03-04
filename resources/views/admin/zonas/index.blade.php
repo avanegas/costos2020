@@ -3,18 +3,27 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    <a class="btn btn-secondary float-right" href="{{route('admin.zonas.create')}}">Agregar zona</a>
-    <h1>Area(zona) de trabajo.</h1>
+    @can('admin.zonas.create')
+        <a class="btn btn-secondary float-right" href="{{route('admin.zonas.create')}}">Nueva zona</a>
+    @endcan    
+    <h1>Areas(zonas) de trabajo.</h1>
 @stop
 
 @section('content')
+
+    @if (session('info'))
+        <div class="alert alert-success mb-2">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
+
     @livewire('admin.zonas-index')
 @stop
 
 @section('css')
-    //
+
 @stop
 
 @section('js')
-    //
+
 @stop

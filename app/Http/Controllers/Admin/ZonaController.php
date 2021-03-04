@@ -8,6 +8,14 @@ use App\Models\Zona;
 
 class ZonaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.zonas.index')->only('index');
+        $this->middleware('can:admin.zonas.create')->only('create', 'store');
+        $this->middleware('can:admin.zonas.edit')->only('edit', 'update');
+        $this->middleware('can:admin.zonas.destroy')->only('destroy');
+    }
+
     public function index()
     {
         return view('admin.zonas.index');
@@ -20,12 +28,14 @@ class ZonaController extends Controller
 
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]);
 
-    public function show(Zona $zona)
-    {
-        return view('admin.zonas.show', compact('zona'));
+        $zona = Zona::create($request->all());
+
+        return redirect()->route('admin.zonas.edit', $zona)->with('info', 'La zona se creó con éxito');
     }
 
     public function edit(Zona $zona)
@@ -35,11 +45,20 @@ class ZonaController extends Controller
 
     public function update(Request $request, Zona $zona)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+
+        $zona->update($request->all());
+
+        return redirect()->route('admin.zonas.edit', $zona)->with('info', 'La zona se actualizó con éxito');
     }
 
     public function destroy(Zona $zona)
     {
-        //
+        $zona->delete();
+
+        return redirect()->route('admin.zonas.index')->with('info', 'La zona se eliminó con éxito');
     }
 }

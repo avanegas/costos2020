@@ -8,6 +8,14 @@ use App\Models\Group;
 
 class GroupController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.groups.index')->only('index');
+        $this->middleware('can:admin.groups.create')->only('create', 'store');
+        $this->middleware('can:admin.groups.edit')->only('edit', 'update');
+        $this->middleware('can:admin.groups.destroy')->only('destroy');
+    }
+
     public function index()
     {
         return view('admin.groups.index');
@@ -20,12 +28,13 @@ class GroupController extends Controller
 
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required'
+        ]);
 
-    public function show(Group $group)
-    {
-        return view('admin.groups.index', compact('group'));
+        $group = Group::create($request->all());
+
+        return redirect()->route('admin.groups.edit', $group)->with('info', 'El grupo se creó con éxito');
     }
 
     public function edit(Group $group)
@@ -35,11 +44,19 @@ class GroupController extends Controller
 
     public function update(Request $request, Group $group)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $group->update($request->all());
+
+        return redirect()->route('admin.groups.edit', $group)->with('info', 'El grupo se actualizó con éxito');
     }
 
     public function destroy(Group $group)
     {
-        //
+        $group->delete();
+
+        return redirect()->route('admin.groups.index')->with('info', 'El grupo se eliminó con éxito');
     }
 }

@@ -18,8 +18,8 @@ Route::resource('users', UserController::class)->only('index', 'edit', 'update')
 Route::resource('roles', RoleController::class)->names('admin.roles');
 Route::resource('permissions', PermissionController::class)->names('admin.permissions');
 
-Route::resource('zonas', ZonaController::class)->names('admin.zonas');
-Route::resource('groups', GroupController::class)->names('admin.groups');
+Route::resource('zonas', ZonaController::class)->except('show')->names('admin.zonas');
+Route::resource('groups', GroupController::class)->except('show')->names('admin.groups');
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 Route::resource('posts', PostController::class)->except('show')->names('admin.posts');

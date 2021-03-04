@@ -10,7 +10,7 @@ class GrupoPrecio extends Model
     use HasFactory;
 
     protected $fillable = [
-        'zona_id', 'name', 'description'
+        'name', 'description',
     ];
 
     public function zona()

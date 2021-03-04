@@ -288,13 +288,13 @@ return [
             'text'  => 'Artículos (posts)',
             'route' => 'admin.posts.index',
             'icon'  => 'fas fa-fw fa-clipboard',
-            'can'    => 'admin.posts.index',
+            'can'   => 'admin.posts.index',
         ],
         [
             'text'  => 'Crear nuevo artículo (post)',
             'route' => 'admin.posts.create',
             'icon'  => 'fas fa-fw fa-file',
-            'can'    => 'admin.posts.create',
+            'can'   => 'admin.posts.create',
         ],
 
 
@@ -303,20 +303,21 @@ return [
             'text'  => 'Areas de actividad ',
             'route' => 'admin.zonas.index',
             'icon'  => 'fas fa-map-marker-alt',
-            'can'    => 'admin.zonas.index'
+            'active'=> ['admin/zonas*'],
+            'can'   => 'admin.zonas.index',
         ],
         [
             'text'  => 'Grupos de usuario',
             'route' => 'admin.groups.index',
             'icon'  => 'fas fa-users',
             'can'   => 'admin.users.index',
-            'can'    => 'admin.groups.index'
+            'can'    => 'admin.groups.index',
         ],
         [
             'text'  => 'Usuarios',
             'route' => 'admin.users.index',
             'icon'  => 'fas fa-fw fa-clipboard',
-            'can'    => 'admin.users.index'
+            'can'   => 'admin.users.index',
         ],        
         [
             'text' => 'profile',
@@ -328,20 +329,18 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-
         [
             'text'  => 'Permisos',
             'route' => 'admin.permissions.index',
             'icon'  => 'fas fa-user-lock',
-            'can'    => 'admin.permissions.index'
+            'can'   => 'admin.permissions.index'
         ],
         [
             'text'  => 'Roles',
             'route' => 'admin.roles.index',
             'icon'  => 'fas fa-user-tag',
-            'can'    => 'admin.roles.index'
+            'can'   => 'admin.roles.index',
         ],
-
     ],
 
     /*

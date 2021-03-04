@@ -21,31 +21,37 @@
         <div class="card-body">
             <table  class="table table-striped">
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Usuario</th>
-                    <th>Zona o área de trabajo</th>
-                    <th>Descripción</th>
-                    <th colspan="2"></th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Zona o área de trabajo</th>
+                        <th>Descripción</th>
+                        <th colspan="2"></th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach ($zonas as $zona)
-                    <tr>
-                        <td>{{$zona->id}}</td>
-                        <td>{{$zona->user->name}}</td>
-                        <td>{{$zona->name}}</td>
-                        <td>{{$zona->description}}</td>
-                        <td width="10px"><a class="btn btn-primary btn-sm" href="{{route('admin.zonas.edit', $zona)}}">Editar</a></td>
-                        <td width="10px">
-                            <form action="{{route('admin.zonas.destroy', $zona)}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+                    @foreach ($zonas as $zona)
+                        <tr>
+                            <td>{{$zona->id}}</td>
+                            <td>{{$zona->user->name}}</td>
+                            <td>{{$zona->name}}</td>
+                            <td>{{$zona->description}}</td>
+                            <td width="10px">
+                                @can('admin.zonas.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.zonas.edit', $zona)}}">Editar</a>
+                                @endcan
+                            </td>
+                            <td width="10px">
+                                @can('admin.zonas.destroy')
+                                    <form action="{{route('admin.zonas.destroy', $zona)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                @endcan    
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -57,4 +63,5 @@
             <strong>No existe ningún registro.</strong>
         </div>
     @endif
+
 </div>
