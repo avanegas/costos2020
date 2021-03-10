@@ -9,14 +9,11 @@
         @foreach ($groups as $group)
             <a href="{{route('servicios.show', $group->id)}}" class="flex-initial bg-gray-300 font-bold px-2 py-1.5 rounded-md hover:bg-gray-200 mr-2"> {{$group->name}}</a>
         @endforeach
-
     </div>
 
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-  
         <div class="flex bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
             <input class="form-input ronded-md shadow-sm mt-1 block w-full" type="text" placeholder="Buscar...">
-
             <div class="form-input ronded-md shadow-sm mt-1 ml-6 block">
                 <select wire:model="perPage" class="outline-none text-gray-500 text-sm">
                     <option value="10">10 por página</option>
@@ -24,9 +21,7 @@
                     <option value="100">100 por página</option>
                 </select>
             </div>
-            
-                <button wire:click="clear" class="form-input rounded-md shadow-sm mt-1 ml-6 block">X</button>
-
+            <button wire:click="clear" class="form-input rounded-md shadow-sm mt-1 ml-6 block">X</button>
         </div>
 
         <div class="bg-white">

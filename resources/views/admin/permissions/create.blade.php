@@ -3,7 +3,7 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    <h1>Crear nueva área (zona).</h1>
+    <h1>Crear un nuevo permiso.</h1>
 @stop
 
 @section('content')
@@ -16,10 +16,9 @@
 
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.zonas.store') }}">
+            <form method="POST" action="{{ route('admin.permissions.store') }}">
 
                 @csrf
-                <input id="user_id" type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 
                 <div class="form-group">
                     <label for="name">{{ __('Name') }}</label>
@@ -44,7 +43,7 @@
                     <button type="submit" class="btn btn-primary btn-sm">
                         {{ __('Guardar') }}
                     </button>
-                    <a href="{{route('admin.zonas.index')}}" class="btn btn-secondary btn-sm ml-1"> Regresar</a>
+                    <a href="{{route('admin.permissions.index')}}" class="btn btn-secondary btn-sm ml-1"> Regresar</a>
                 </div>
             </form>
         </div>

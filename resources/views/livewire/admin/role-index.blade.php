@@ -33,14 +33,20 @@
                     <tr>
                         <td>{{$role->id}}</td>
                         <td>{{$role->name}}</td>
-                        <td>{{ $role->permissions()->pluck('name')->implode(', ') }}</td>
-                        <td width="10px"><a class="btn btn-primary btn-sm" href="{{route('admin.roles.edit', $role)}}">Editar</a></td>
+                        <td>{{ $role->permissions()->pluck('description')->implode(', ') }}</td>
                         <td width="10px">
-                            <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
+                            @can('admin.roles.edit')
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.roles.edit', $role)}}">Editar</a>
+                            @endcan
+                        </td>
+                        <td width="10px">
+                            @can('admin.roles.destroy')
+                                <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                            @endcan    
                         </td>
                     </tr>
                 @endforeach

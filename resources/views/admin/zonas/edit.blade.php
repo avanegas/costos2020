@@ -3,7 +3,7 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    <h1>Editar área de trabajos (zona).</h1>
+    <h1>Editar área(zona) de trabajo.</h1>
 @stop
 
 @section('content')
@@ -19,6 +19,7 @@
             <form method="POST" action="{{ route('admin.zonas.update', $zona) }}">
                 @csrf
                 @method('PUT')
+
                 <div class="form-group">
                     <label for="name">{{ __('Name') }}</label>
                     <div class="col-md">
@@ -37,22 +38,15 @@
                         @enderror
                     </div>
                 </div>
+    
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary btn-sm">
                         {{ __('Actualizar') }}
                     </button>
-                    <a href="{{route('admin.zonas.index')}}" class="btn btn-secondary btn-sm ml-1"> Regresar</a>
+                    <a href="{{route('admin.zonas.index')}}" class="btn btn-secondary btn-sm ml-1"> {{ __('Regresar')}}</a>
                 </div>
             </form>
         </div>
     </div>
-
-@stop
-
-@section('css')
-
-@stop
-
-@section('js')
 
 @stop

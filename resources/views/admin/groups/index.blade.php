@@ -19,11 +19,3 @@
 
     @livewire('admin.groups-index')
 @stop
-
-@section('css')
-
-@stop
-
-@section('js')
-
-@stop

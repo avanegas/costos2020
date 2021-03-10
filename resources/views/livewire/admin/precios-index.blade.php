@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header form-inline">
         <div class="col-8">
-             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese una zona de trabajo">
+             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese un precio unitario">
         </div>
         <div class="col-3">
             <select wire:model="perPage" class="form-control w-100">
@@ -17,38 +17,39 @@
         </div>
     </div>
 
-    @if ($zonas->count())
+    @if ($precios->count())
         <div class="card-body">
             <table  class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Usuario</th>
-                        <th>Zona de trabajo</th>
-                        <th>Descripción</th>
-                        <th colspan="2"></th>
-                    </tr>
+                <tr>
+                    <th>Grupo</th>
+                    <th>Name</th>
+                    <th>Unidad</th>
+                    <th>Especificación</th>
+                    <th>Costo</th>
+                    <th colspan="2"></th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($zonas as $zona)
+                    @foreach ($precios as $precio)
                         <tr>
-                            <td>{{$zona->id}}</td>
-                            <td>{{$zona->user->name}}</td>
-                            <td>{{$zona->name}}</td>
-                            <td>{{$zona->description}}</td>
-                            <td width="10px">
-                                @can('admin.zonas.edit')
-                                    <a class="btn btn-primary btn-sm" href="{{route('admin.zonas.edit', $zona)}}">Editar</a>
+                            <td>{{$precio->grupo_precio->name}}</td>
+                            <td>{{$precio->name}}</td>
+                            <td>{{$precio->unidad}}</td>
+                            <td>{{$precio->detalle}}</td>
+                            <td>{{$precio->directo}}</td>                            <td width="10px">
+                                @can('admin.precios.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.precios.edit', $precio)}}">Editar</a>
                                 @endcan
-                            </td>
-                            <td width="10px">
-                                @can('admin.zonas.destroy')
-                                    <form action="{{route('admin.zonas.destroy', $zona)}}" method="POST">
+                                </td>
+                            <td width="10px">                           
+                                @can('admin.precios.destroy')
+                                    <form action="{{route('admin.precios.destroy', $precio)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
-                                @endcan    
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
@@ -56,7 +57,7 @@
             </table>
         </div>
         <div class="card-footer d-flex justify-content-end">
-            {{$zonas->links()}}
+            {{$precios->links()}}
         </div>
     @else
         <div class="card-body">

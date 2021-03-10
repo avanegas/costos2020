@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Group;
+use App\Models\Proyecto;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class GroupsIndex extends Component
+class ProyectosIndex extends Component
 {
     use WithPagination;
 
@@ -29,10 +29,13 @@ class GroupsIndex extends Component
     {
         $searchParams = '%' . $this->search . '%';
 
-        $groups =  Group::where('name', 'LIKE', $searchParams)
-                        ->paginate($this->perPage); 
+        $proyectos = Proyecto::where('name', 'LIKE', $searchParams)
+            ->orWhere('contratante', 'LIKE', $searchParams)
+            ->orWhere('ubicacion', 'LIKE', $searchParams)
+            ->orWhere('oferente', 'LIKE', $searchParams)
+            ->paginate($this->perPage);
 
-        return view('livewire.admin.groups-index', compact('groups'));
+        return view('livewire.admin.proyectos-index', compact('proyectos'));
     }
 
     public function clear()

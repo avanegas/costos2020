@@ -6,7 +6,7 @@
     @can('admin.categories.create')
         <a href="{{route('admin.categories.create')}}" class="btn btn-secondary btn-sm float-right">Nueva categoría</a>
     @endcan
-    <h1>Categorías de artículos.</h1>
+    <h1>Categorías de artículo.</h1>
 @stop
 
 @section('content')
@@ -18,12 +18,4 @@
     @endif
 
     @livewire('admin.categories-index')
-@stop
-
-@section('css')
-    
-@stop
-
-@section('js')
-    
 @stop

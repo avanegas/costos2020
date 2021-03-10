@@ -3,10 +3,10 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    @can('admin.zonas.create')
-        <a class="btn btn-secondary float-right" href="{{route('admin.zonas.create')}}">Nueva zona</a>
+    @can('admin.precios.create')
+        <a href="{{route('admin.precios.create')}}" class="btn btn-secondary btn-sm float-right">Nuevo precio</a>
     @endcan    
-    <h1>Areas (zonas) de trabajo.</h1>
+    <h1>Precios unitarios.</h1>
 @stop
 
 @section('content')
@@ -17,5 +17,13 @@
         </div>
     @endif
 
-    @livewire('admin.zonas-index')
+    @livewire('admin.precios-index')
+@stop
+
+@section('css')
+    
+@stop
+
+@section('js')
+   
 @stop

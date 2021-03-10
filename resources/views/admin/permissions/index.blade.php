@@ -3,18 +3,19 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    <a href="{{route('admin.permissions.create')}}" class="btn btn-secondary btn-sm float-right">Nuevo permiso</a>
-    <h1>Listado de permisos para un rol de usuario.</h1>
+    @can('admin.permissions.create')
+        <a href="{{route('admin.permissions.create')}}" class="btn btn-secondary btn-sm float-right">Nuevo permiso</a>
+    @endcan
+    <h1>Permisos de rol.</h1>
 @stop
 
 @section('content')
+
+    @if (session('info'))
+        <div class="alert alert-success mb-2">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
+
     @livewire('admin.permission-index')
-@stop
-
-@section('css')
-    
-@stop
-
-@section('js')
-    
 @stop

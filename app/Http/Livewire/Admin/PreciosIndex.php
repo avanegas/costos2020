@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Group;
+use App\Models\Precio;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class GroupsIndex extends Component
+class PreciosIndex extends Component
 {
     use WithPagination;
 
@@ -28,11 +28,13 @@ class GroupsIndex extends Component
     public function render()
     {
         $searchParams = '%' . $this->search . '%';
+        
+        $precios = Precio::where('name', 'LIKE', $searchParams)
+                        ->orWhere('unidad', 'LIKE', $searchParams)
+                        ->orWhere('detalle', 'LIKE', $searchParams)
+                        ->paginate($this->perPage);
 
-        $groups =  Group::where('name', 'LIKE', $searchParams)
-                        ->paginate($this->perPage); 
-
-        return view('livewire.admin.groups-index', compact('groups'));
+        return view('livewire.admin.precios-index', compact('precios'));
     }
 
     public function clear()
@@ -40,5 +42,5 @@ class GroupsIndex extends Component
         $this->search = '';
         $this->page = 1;
         $this->perPage = '10';
-    }  
+    }   
 }

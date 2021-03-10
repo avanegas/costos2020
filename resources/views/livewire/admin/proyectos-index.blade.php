@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header form-inline">
         <div class="col-8">
-             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese una zona de trabajo">
+             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese un proyecto">
         </div>
         <div class="col-3">
             <select wire:model="perPage" class="form-control w-100">
@@ -17,38 +17,40 @@
         </div>
     </div>
 
-    @if ($zonas->count())
+    @if ($proyectos->count())
         <div class="card-body">
             <table  class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Usuario</th>
-                        <th>Zona de trabajo</th>
-                        <th>Descripción</th>
-                        <th colspan="2"></th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Contratante</th>
+                    <th>Ubicación</th>
+                    <th>Oferente</th>
+                    <th colspan="2"></th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($zonas as $zona)
+                    @foreach ($proyectos as $proyecto)
                         <tr>
-                            <td>{{$zona->id}}</td>
-                            <td>{{$zona->user->name}}</td>
-                            <td>{{$zona->name}}</td>
-                            <td>{{$zona->description}}</td>
+                            <td>{{$proyecto->id}}</td>
+                            <td>{{$proyecto->name}}</td>
+                            <td>{{$proyecto->contratante}}</td>
+                            <td>{{$proyecto->ubicacion}}</td>
+                            <td>{{$proyecto->oferente}}</td>
                             <td width="10px">
-                                @can('admin.zonas.edit')
-                                    <a class="btn btn-primary btn-sm" href="{{route('admin.zonas.edit', $zona)}}">Editar</a>
+                                @can('admin.proyectos.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.proyectos.edit', $proyecto)}}">Editar</a>
                                 @endcan
-                            </td>
-                            <td width="10px">
-                                @can('admin.zonas.destroy')
-                                    <form action="{{route('admin.zonas.destroy', $zona)}}" method="POST">
+                                </td>
+                            <td width="10px">                           
+                                @can('admin.proyectos.destroy')
+                                    <form action="{{route('admin.proyectos.destroy', $proyecto)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
-                                @endcan    
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
@@ -56,7 +58,7 @@
             </table>
         </div>
         <div class="card-footer d-flex justify-content-end">
-            {{$zonas->links()}}
+            {{$proyectos->links()}}
         </div>
     @else
         <div class="card-body">

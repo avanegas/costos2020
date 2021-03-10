@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header form-inline">
         <div class="col-8">
-             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese un permiso de rol/usuario">
+             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese un permiso de rol">
         </div>
         <div class="col-3">
             <select wire:model="perPage" class="form-control w-100">
@@ -24,6 +24,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Permiso</th>
+                    <th>Descripción</th>
                     <th colspan="2"></th>
                 </tr>
                 </thead>
@@ -32,13 +33,20 @@
                     <tr>
                         <td>{{$permission->id}}</td>
                         <td>{{$permission->name}}</td>
-                        <td width="10px"><a class="btn btn-primary btn-sm" href="{{route('admin.permissions.edit', $permission)}}">Editar</a></td>
+                        <td>{{$permission->description}}</td>
                         <td width="10px">
-                            <form action="{{route('admin.permissions.destroy', $permission)}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
+                            @can('admin.permissions.edit')
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.permissions.edit', $permission)}}">Editar</a>
+                            @endcan
+                        </td>
+                        <td width="10px">
+                            @can('admin.permissions.destroy')
+                                <form action="{{route('admin.permissions.destroy', $permission)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header form-inline">
         <div class="col-8">
-             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese una categoría de articulos">
+             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese la categoría de articulos">
         </div>
         <div class="col-3">
             <select wire:model="perPage" class="form-control w-100">

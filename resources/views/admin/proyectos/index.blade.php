@@ -3,10 +3,8 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    @can('admin.zonas.create')
-        <a class="btn btn-secondary float-right" href="{{route('admin.zonas.create')}}">Nueva zona</a>
-    @endcan    
-    <h1>Areas (zonas) de trabajo.</h1>
+    <a href="{{route('admin.proyectos.create')}}" class="btn btn-secondary btn-sm float-right">Nuevo proyecto</a>
+    <h1>Proyectos.</h1>
 @stop
 
 @section('content')
@@ -17,5 +15,14 @@
         </div>
     @endif
 
-    @livewire('admin.zonas-index')
+    @livewire('admin.proyectos-index')
+    
+@stop
+
+@section('css')
+    
+@stop
+
+@section('js')
+   
 @stop

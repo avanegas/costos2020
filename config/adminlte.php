@@ -288,14 +288,36 @@ return [
             'text'  => 'Artículos (posts)',
             'route' => 'admin.posts.index',
             'icon'  => 'fas fa-fw fa-clipboard',
+            'active' => ['admin/posts/*'],
             'can'   => 'admin.posts.index',
         ],
         [
-            'text'  => 'Crear nuevo artículo (post)',
-            'route' => 'admin.posts.create',
-            'icon'  => 'fas fa-fw fa-file',
-            'can'   => 'admin.posts.create',
+            'text'  => 'Ofertas',
+            'route' => 'admin.ofertas.index',
+            'icon'  => 'fas fa-fw fa-clipboard',
         ],
+        [
+            'text'  => 'Servicios',
+            'route' => 'admin.servicios.index',
+            'icon'  => 'fas fa-fw fa-file',
+        ],
+
+        ['header' => 'OPCIONES DE COSTOS'],
+        [
+            'text'   => 'Datos',
+            'route'  => 'admin.servicios.index',
+            'icon'   => 'fab fa-fw fa-buffer',
+        ],
+        [
+            'text'   => 'Precios unitarios',
+            'route'  => 'admin.precios.index',
+            'icon'   => 'fab fa-fw fa-buffer',
+        ],
+        [
+            'text'   => 'Proyectos',
+            'route'  => 'admin.proyectos.index',
+            'icon'   => 'far fa-fw fa-bookmark',
+        ],  
 
 
         ['header' => 'CONFIGURACION DE CUENTA'],
@@ -309,14 +331,15 @@ return [
         [
             'text'  => 'Grupos de usuario',
             'route' => 'admin.groups.index',
-            'icon'  => 'fas fa-users',
-            'can'   => 'admin.users.index',
+            'icon'  => 'fas fa-users fa-fw',
+            'active' => ['admin/groups*'],
             'can'    => 'admin.groups.index',
         ],
         [
             'text'  => 'Usuarios',
             'route' => 'admin.users.index',
             'icon'  => 'fas fa-fw fa-clipboard',
+            'active' => ['admin/users*'],
             'can'   => 'admin.users.index',
         ],        
         [
@@ -332,13 +355,15 @@ return [
         [
             'text'  => 'Permisos',
             'route' => 'admin.permissions.index',
-            'icon'  => 'fas fa-user-lock',
+            'icon'  => 'fas fa-user-lock fa-fw',
+            'active' => ['admin/permissions*'],
             'can'   => 'admin.permissions.index'
         ],
         [
             'text'  => 'Roles',
             'route' => 'admin.roles.index',
-            'icon'  => 'fas fa-user-tag',
+            'icon'  => 'fas fa-user-cog fa-fw',
+            'active' => ['admin/roles*'],
             'can'   => 'admin.roles.index',
         ],
     ],

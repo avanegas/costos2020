@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header form-inline">
         <div class="col-8">
-             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese un grupo de usuario">
+             <input wire:model="search" type="text" class="w-100 form-control" placeholder="Ingrese el grupo de usuario">
         </div>
         <div class="col-3">
             <select wire:model="perPage" class="form-control w-100">
@@ -18,7 +18,6 @@
     </div>
 
     @if ($groups->count())
-
         <div class="card-body">
             <table  class="table table-striped">
                 <thead>
@@ -29,20 +28,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($groups as $group)
-                    <tr>
-                        <td>{{$group->id}}</td>
-                        <td>{{$group->name}}</td>
-                        <td width="10px"><a class="btn btn-primary btn-sm" href="{{route('admin.groups.edit', $group)}}">Editar</a></td>
-                        <td width="10px">
-                            <form action="{{route('admin.groups.destroy', $group)}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+                    @foreach ($groups as $group)
+                        <tr>
+                            <td>{{$group->id}}</td>
+                            <td>{{$group->name}}</td>
+                            <td width="10px">
+                                @can('admin.groups.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.groups.edit', $group)}}">Editar</a>
+                                @endcan
+                                </td>
+                            <td width="10px">                           
+                                @can('admin.groups.destroy')
+                                    <form action="{{route('admin.groups.destroy', $group)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                @endcan
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -3,8 +3,10 @@
 @section('title', 'Administración')
 
 @section('content_header')
-    <a href="{{route('admin.posts.create')}}" class="btn btn-secondary btn-sm float-right">Nuevo artículo</a>
-    <h1>Listado de articulos.</h1>
+    @can('admin.posts.create')
+        <a href="{{route('admin.posts.create')}}" class="btn btn-secondary btn-sm float-right">Nuevo artículo</a>
+    @endcan    
+    <h1>Articulos (posts).</h1>
 @stop
 
 @section('content')
@@ -17,12 +19,4 @@
 
     @livewire('admin.posts-index')
     
-@stop
-
-@section('css')
-    
-@stop
-
-@section('js')
-   
 @stop

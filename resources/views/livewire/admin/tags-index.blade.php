@@ -24,6 +24,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Color</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -32,6 +33,7 @@
                          <tr>
                              <td>{{$tag->id}}</td>
                              <td>{{$tag->name}}</td>
+                             <td>{{$tag->color}}</td>
                              <td width="10px">
                                 @can('admin.tags.edit')
                                     <a href="{{route('admin.tags.edit', $tag)}}" class="btn btn-sm btn-primary">Edit</a>
