@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <div class="w-full sm:max-w-lg bg-gradient-to-r p-1 px-6 from-yellow-300 via-green-300 to-pink-300 shadow-md rounded-lg">
+            <div class="w-full sm:max-w-lg bg-gradient-to-r p-1 px-6 from-yellow-300 via-yellow-200 to-yellow-100 shadow-md rounded-lg">
                 <a href="/" class="flex-shrink-0 flex items-center">
                     <img class="block lg:hidden h-20 w-auto" src="{{asset('img/costos_color_op.svg')}}" alt="Costos">
                     <img class="hidden lg:block h-20 w-auto" src="{{asset('img/costos_color_op.svg')}}" alt="Costos">
