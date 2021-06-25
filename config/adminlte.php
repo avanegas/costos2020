@@ -259,6 +259,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
         [
             'text'  =>'Dashboard',
             'route' => 'admin.home',
@@ -268,6 +269,7 @@ return [
             'icon_color'  =>'green',
             'can'   => 'admin.home',
         ],
+
 
         ['header' => 'OPCIONES DE BLOG'],
         [
@@ -283,7 +285,7 @@ return [
             'icon'   => 'far fa-fw fa-bookmark',
             'active' => ['admin/tags*'],
             'can'    => 'admin.tags.index',
-        ],        
+        ],
         [
             'text'  => 'Artículos (posts)',
             'route' => 'admin.posts.index',
@@ -295,18 +297,52 @@ return [
             'text'  => 'Ofertas',
             'route' => 'admin.ofertas.index',
             'icon'  => 'fas fa-fw fa-clipboard',
+            'active' => ['admin/ofertas*'],
+            'can'   => 'admin.ofertas.index',
         ],
         [
             'text'  => 'Servicios',
             'route' => 'admin.servicios.index',
             'icon'  => 'fas fa-fw fa-file',
+            'active' => ['admin/servicios*'],
+            'can'   => 'admin.servicios.index',
         ],
+
 
         ['header' => 'OPCIONES DE COSTOS'],
         [
-            'text'   => 'Datos',
-            'route'  => 'admin.servicios.index',
-            'icon'   => 'fab fa-fw fa-buffer',
+            'text'    => 'Datos',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Equipos',
+                    'route'  => 'admin.equipos.index',
+                ],
+                [
+                    'text' => 'Materiales',
+                    'route'  => 'admin.materials.index',
+                ],
+                [
+                    'text' => 'Mano de obra',
+                    'route'  => 'admin.obreros.index',
+                ],
+                [
+                    'text' => 'Transportes',
+                    'route'  => 'admin.transportes.index',
+                ],
+                [
+                    'text'   => 'Generales',
+                    'route'  => 'admin.generals.index',
+                ],
+                [
+                    'text' => 'Indirectos',
+                    'route'  => 'admin.indirectos.index',
+                ],
+                [
+                    'text' => 'Indices',
+                    'route'  => 'admin.indices.index',
+                ],
+            ],
         ],
         [
             'text'   => 'Precios unitarios',
@@ -317,7 +353,7 @@ return [
             'text'   => 'Proyectos',
             'route'  => 'admin.proyectos.index',
             'icon'   => 'far fa-fw fa-bookmark',
-        ],  
+        ],
 
 
         ['header' => 'CONFIGURACION DE CUENTA'],
@@ -341,9 +377,9 @@ return [
             'icon'  => 'fas fa-fw fa-clipboard',
             'active' => ['admin/users*'],
             'can'   => 'admin.users.index',
-        ],        
+        ],
         [
-            'text' => 'profile',
+            'text' => 'Profile',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],

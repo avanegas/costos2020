@@ -28,7 +28,7 @@ class PreciosIndex extends Component
     public function render()
     {
         $searchParams = '%' . $this->search . '%';
-        
+
         $precios = Precio::where('name', 'LIKE', $searchParams)
                         ->orWhere('unidad', 'LIKE', $searchParams)
                         ->orWhere('detalle', 'LIKE', $searchParams)
@@ -42,5 +42,5 @@ class PreciosIndex extends Component
         $this->search = '';
         $this->page = 1;
         $this->perPage = '10';
-    }   
+    }
 }

@@ -12,6 +12,11 @@ class ZonasIndex extends Component
 
     protected $paginationTheme = "bootstrap";
 
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'perPage' => ['except' => '10']
+    ];
+
     public $search = '';
     public $perPage = '10';
 
@@ -36,5 +41,5 @@ class ZonasIndex extends Component
         $this->search = '';
         $this->page = 1;
         $this->perPage = '10';
-    } 
+    }
 }

@@ -19,16 +19,12 @@ class PostRequest extends FormRequest
      *       return false;
      *   }
      */
+
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         $post = $this->route()->parameter('post');
@@ -37,7 +33,7 @@ class PostRequest extends FormRequest
             'name'   => 'required',
             'slug'   => 'required|unique:posts',
             'status' => 'required',
-            'file'   => 'image'           
+            'file'   => 'image'
         ];
 
         if($post){

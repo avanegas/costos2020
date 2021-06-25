@@ -17,18 +17,18 @@ class CreateOfertasTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('unidad');
             $table->mediumText('descripcion')->nullable();
             $table->double('stock', 10, 2);
             $table->double('precio', 10, 2);
-            $table->string('file')->default('test.png');
-            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');            
+            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
             $table->timestamps();
 
             //relation
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');            
+                ->onUpdate('cascade');
         });
     }
 

@@ -8,9 +8,15 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ZonaController;
 use App\Http\Controllers\Admin\GroupController;
 
+use App\Http\Controllers\Admin\EquipoController;
+use App\Http\Controllers\Admin\MaterialController;
+use App\Http\Controllers\Admin\ObreroController;
+use App\Http\Controllers\Admin\TransporteController;
+use App\Http\Controllers\Admin\GeneralController;
+use App\Http\Controllers\Admin\IndirectoController;
+use App\Http\Controllers\Admin\IndiceController;
 use App\Http\Controllers\Admin\ProyectoController;
 use App\Http\Controllers\Admin\PrecioController;
-
 use App\Http\Controllers\Admin\OfertaController;
 use App\Http\Controllers\Admin\ServicioController;
 
@@ -31,9 +37,15 @@ Route::resource('categories', CategoryController::class)->except('show')->names(
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 Route::resource('posts', PostController::class)->except('show')->names('admin.posts');
 
+Route::resource('equipos', EquipoController::class)->except('show')->names('admin.equipos');
+Route::resource('materials', MaterialController::class)->except('show')->names('admin.materials');
+Route::resource('obreros', ObreroController::class)->except('show')->names('admin.obreros');
+Route::resource('transportes', TransporteController::class)->except('show')->names('admin.transportes');
+Route::resource('generals', GeneralController::class)->except('show')->names('admin.generals');
+Route::resource('indirectos', IndirectoController::class)->except('show')->names('admin.indirectos');
+Route::resource('indices', IndiceController::class)->except('show')->names('admin.indices');
 Route::resource('proyectos', ProyectoController::class)->except('show')->names('admin.proyectos');
 Route::resource('precios', PrecioController::class)->except('show')->names('admin.precios');
-
 Route::resource('ofertas', OfertaController::class)->except('show')->names('admin.ofertas');
 Route::resource('servicios', ServicioController::class)->except('show')->names('admin.servicios');
 

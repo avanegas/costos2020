@@ -12,6 +12,11 @@ class PermissionIndex extends Component
 
     protected $paginationTheme = "bootstrap";
 
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'perPage' => ['except' => '10']
+    ];
+
     public $search = '';
     public $perPage = '10';
 
@@ -25,8 +30,8 @@ class PermissionIndex extends Component
         $searchParams = '%' . $this->search . '%';
 
         $permissions =  Permission::where('name', 'LIKE', $searchParams)
-            ->latest('id')
-            ->paginate($this->perPage);
+                                ->latest('id')
+                                ->paginate($this->perPage);
 
         return view('livewire.admin.permission-index', compact('permissions'));
     }

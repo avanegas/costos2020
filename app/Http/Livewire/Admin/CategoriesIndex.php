@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
-use Livewire\WithPagination;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class CategoriesIndex extends Component
 {
     use WithPagination;
+
+    protected $paginationTheme = "bootstrap";
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -18,6 +20,11 @@ class CategoriesIndex extends Component
     public $search = '';
     public $perPage = '10';
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $searchParams = '%' . $this->search . '%';
@@ -25,7 +32,7 @@ class CategoriesIndex extends Component
         $categories =  Category::where('name', 'LIKE', $searchParams)
                             ->latest('id')
                             ->paginate($this->perPage);
-            
+
         return view('livewire.admin.categories-index', compact('categories'));
     }
 
@@ -34,5 +41,5 @@ class CategoriesIndex extends Component
         $this->search = '';
         $this->page = 1;
         $this->perPage = '10';
-    }  
+    }
 }

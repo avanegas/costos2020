@@ -12,6 +12,11 @@ class TagsIndex extends Component
 
     protected $paginationTheme = "bootstrap";
 
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'perPage' => ['except' => '10']
+    ];
+
     public $search = '';
     public $perPage = '10';
 
@@ -27,7 +32,7 @@ class TagsIndex extends Component
         $tags =  Tag::where('name', 'LIKE', $searchParams)
                     ->latest('id')
                     ->paginate($this->perPage);
-                    
+
         return view('livewire.admin.tags-index', compact('tags'));
     }
 
@@ -36,5 +41,5 @@ class TagsIndex extends Component
         $this->search = '';
         $this->page = 1;
         $this->perPage = '10';
-    }  
+    }
 }
