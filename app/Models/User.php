@@ -25,7 +25,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-    
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -44,6 +44,19 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function scopeTermino($query, $termino)
+    {
+        if($termino === '') {
+            return;
+        }
+
+        return $query->where('name', 'LIKE', "%{$termino}%")
+            ->orWhere('email', 'LIKE',  "%{$termino}%")
+            ->orWhereHas('groups', function($query2) use ($termino){
+                $query2->where('name', 'like', "%{$termino}%");
+            });
+    }
 
     public function adminlte_image(){
         return 'https://picsum.photos/300/300';

@@ -4,23 +4,22 @@ namespace App\Http\Livewire;
 
 use App\Models\Group;
 use App\Models\User;
-use Livewire\WithPagination;
-use Livewire\Component;
+use Livewire\{Component, WithPagination};
 
 class Servicios extends Component
 {
     use WithPagination;
+
+    public $search = '';
+    public $perPage = '10';
+    public $groups;
+    public $user_group = '';
 
     protected $queryString = [
         'search' => ['except' => ''],
         'perPage' => ['except' => '10']
     ];
 
-    public $search = '';
-    public $perPage = '10';
-    public $groups;
-    public $group;
-    
     public function mount()
     {
         $this->groups = Group::orderBy('name', 'asc')->get();
@@ -28,19 +27,12 @@ class Servicios extends Component
 
     public function render()
     {
-        $searchParams = '%' . $this->search . '%';
+        $users = User::termino($this->search);
+                /** ->groups($this->user_group);**/
 
-        $users = $this->group->users()->where('name', 'LIKE', $searchParams)
-                        ->orwhere('email', 'LIKE', $searchParams)
-                        ->latest()->paginate($this->perPage);
+                $users = $users->paginate($this->perPage);
 
         return view('livewire.servicios', compact('users'));
-    }
-
-    public function servicio(Group $group){
-        $this->group = $group;
-        $this->users = $this->group->users()->paginate($this->perPage);
-        //dd($this->group, $this->users);
     }
 
      public function clear() {
