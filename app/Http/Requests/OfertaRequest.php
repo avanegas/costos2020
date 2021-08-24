@@ -24,7 +24,8 @@ class OfertaRequest extends FormRequest
             'name'   => 'required',
             'slug'   => 'required|unique:posts',
             'status' => 'required',
-            'file'   => 'image'
+            'file'   => 'image',
+            'archivo' => 'pdf'
         ];
 
         if($oferta){
@@ -37,7 +38,7 @@ class OfertaRequest extends FormRequest
                 'unidad'      => 'required',
                 'descripcion' => 'required',
                 'stock'       => 'required',
-                'precio'      => 'required',
+                'precio'      => 'required'
             ]);
         }
         return $rules;

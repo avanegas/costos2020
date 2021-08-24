@@ -55,13 +55,7 @@
         });
 
         ClassicEditor
-            .create( document.querySelector( '#excerpt' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-
-        ClassicEditor
-            .create( document.querySelector( '#body' ) )
+            .create( document.querySelector( '#descripcion' ) )
             .catch( error => {
                 console.error( error );
             } );

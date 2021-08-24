@@ -379,16 +379,6 @@ return [
             'can'   => 'admin.users.index',
         ],
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
             'text'  => 'Permisos',
             'route' => 'admin.permissions.index',
             'icon'  => 'fas fa-user-lock fa-fw',

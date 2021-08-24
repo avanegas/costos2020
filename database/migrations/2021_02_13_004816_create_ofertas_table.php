@@ -22,6 +22,7 @@ class CreateOfertasTable extends Migration
             $table->mediumText('descripcion')->nullable();
             $table->double('stock', 10, 2);
             $table->double('precio', 10, 2);
+            $table->string('file');
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
             $table->timestamps();
 

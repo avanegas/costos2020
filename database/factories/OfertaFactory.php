@@ -21,6 +21,7 @@ class OfertaFactory extends Factory
             'descripcion' => $this->faker->sentence(),
             'stock'       => $this->faker->numberBetween(1, 100),
             'precio'      => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0.10, $max = 1000),
+            'file'       => $this->faker->word() . '.pdf',
             'status'      => $this->faker->randomElement(['PUBLISHED', 'DRAFT']),
             'user_id'     => User::all()->random()->id,
         ];

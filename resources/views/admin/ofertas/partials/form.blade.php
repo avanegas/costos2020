@@ -41,7 +41,7 @@
 <div class="form-group">
     <label for="precio">{{ __('Precio') }}</label>
     <div class="col-md">
-        <input id="precio" type="text" class="form-control @error('precio') is-invalid @enderror" placeholder='Ingrese su costo' name="stock" value="{{ isset($oferta->precio)?$oferta->precio:old('precio') }}" autocomplete=off autofocus>
+        <input id="precio" type="text" class="form-control @error('precio') is-invalid @enderror" placeholder='Ingrese su costo' name="precio" value="{{ isset($oferta->precio)?$oferta->precio:old('precio') }}" autocomplete=off autofocus>
         @error('precio')
             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
@@ -89,7 +89,6 @@
             @error('file')
                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
             @enderror
-
         </div>
         <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dolore officiis architecto laboriosam consequuntur vel et dolorum quidem odit deleniti numquam laudantium magnam, debitis inventore quod! Animi maxime dolor sit!</small>
     </div>
@@ -105,3 +104,30 @@
     </div>
 </div>
 
+<div class="row mb-3">
+    @isset ($oferta->file)
+    <div class="col">
+        <div class="form-group">
+            <label for="file">{{ __('Archivo PDF de la oferta: ') }}</label>
+            {{$oferta->file}}
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="file">Cambiar archivo PDF</label>
+            <input type="file" name="archivo" id="archivo" class="form-control-file @error('archivo') is-invalid @enderror">
+            @error('archivo')
+                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+    </div>
+    @else
+        <div class="form-group">
+            <label for="file">Archivo PDF</label>
+            <input type="file" name="archivo" id="archivo" class="form-control-file @error('archivo') is-invalid @enderror">
+            @error('archivo')
+            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+        @endisset
+</div>

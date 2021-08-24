@@ -31,6 +31,7 @@ class OfertaController extends Controller
 
     public function store(OfertaRequest $request)
     {
+        return $request->all();
         /*
         return $request->all();
         return $request->file('file');
@@ -56,6 +57,8 @@ class OfertaController extends Controller
 
     public function update(OfertaRequest $request, Oferta $oferta)
     {
+        return $request->all();
+
         $this->authorize('author', $oferta);
 
         $oferta->update($request->all());
