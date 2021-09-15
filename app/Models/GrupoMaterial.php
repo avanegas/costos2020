@@ -10,7 +10,7 @@ class GrupoMaterial extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description',
+        'zona_id', 'name', 'description',
     ];
 
     public function zona()

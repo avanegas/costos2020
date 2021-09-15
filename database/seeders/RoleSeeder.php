@@ -73,6 +73,21 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.servicios.edit', 'description' => 'Editar servicio'])->syncRoles([$role1, $role2, $role3, $role4]);
         Permission::create(['name' => 'admin.servicios.destroy', 'description' => 'Eliminar servicio'])->syncRoles([$role1, $role2, $role3, $role4]);
 
+        Permission::create(['name' => 'admin.grupo_equipos.index', 'description' => 'Ver lista de grupo_equipo'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_equipos.create', 'description' => 'Crear grupo_equipo'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_equipos.edit', 'description' => 'Editar grupo_equipo'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_equipos.destroy', 'description' => 'Eliminar grupo_equipo'])->syncRoles([$role1, $role2, $role3, $role4]);
+
+        Permission::create(['name' => 'admin.grupo_materials.index', 'description' => 'Ver lista de grupo_material'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_materials.create', 'description' => 'Crear grupo_material'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_materials.edit', 'description' => 'Editar grupo_material'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_materials.destroy', 'description' => 'Eliminar grupo_material'])->syncRoles([$role1, $role2, $role3, $role4]);
+
+        Permission::create(['name' => 'admin.grupo_obreros.index', 'description' => 'Ver lista de grupo_obrero'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_obreros.create', 'description' => 'Crear grupo_obrero'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_obreros.edit', 'description' => 'Editar grupo_obrero'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.grupo_obreros.destroy', 'description' => 'Eliminar grupo_obrero'])->syncRoles([$role1, $role2, $role3, $role4]);
+
         Permission::create(['name' => 'admin.equipos.index', 'description' => 'Ver lista de equipo'])->syncRoles([$role1, $role2, $role3, $role4]);
         Permission::create(['name' => 'admin.equipos.create', 'description' => 'Crear equipo'])->syncRoles([$role1, $role2, $role3, $role4]);
         Permission::create(['name' => 'admin.equipos.edit', 'description' => 'Editar equipo'])->syncRoles([$role1, $role2, $role3, $role4]);
@@ -116,7 +131,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.presupuestos.index', 'description' => 'Ver lista de presupuestos'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
         Permission::create(['name' => 'admin.presupuestos.create', 'description' => 'Crear presupuesto'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
         Permission::create(['name' => 'admin.presupuestos.edit', 'description' => 'Editar Presupuesto'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
-        Permission::create(['name' =>'admin.presupuestos.destroy', 'description' => 'Eliminar Presupuesto'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
+        Permission::create(['name' => 'admin.presupuestos.destroy', 'description' => 'Eliminar Presupuesto'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
 
         Permission::create(['name' => 'admin.home', 'description' => 'Ver el dashboard'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
 

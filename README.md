@@ -1,5 +1,5 @@
       23012021       |     25012021    | 04022021
-Frontend
+x-x-x-x-x-x-x-x-x-x- | -x-x-x-x-x-x-x-x- |...... Frontend........
 - Post
 . lista
 . lista por categoria
@@ -25,21 +25,22 @@ Frontend
                                           . editar
                                           . excel                                    
 
-x-x-x-x-x-x-x-x-x-x- | -x-x-x-x-x-x-x-x- |
-Backend 
-- Post                  - Categoria       -Post
-. Lista                 . lista
-. Create
-                                          .Edit
-                                          .Update
-                                          .Delete
+x-x-x-x-x-x-x-x-x-x- | -x-x-x-x-x-x-x-x- |....... Backend.......
+ 
+- Posts                 - Categoria       - Posts       - Ofertas
+. Lista                 . lista           . Edit        . lista
+. Create                . create          . Update      . edit
+                        . update          . Delete      . create
+                        . edit                  
+                        . delete                  
+                                          
 
-- Users                 - Tag
+- Users                 - Tags
 . lista                 . lista
-
-- Zonas
-. lista
-
+                        . create
+- Zonas                 . update
+. lista                 . edit
+                        . delete
 - Grupos
 . lista
 

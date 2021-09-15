@@ -24,8 +24,8 @@ class OfertaRequest extends FormRequest
             'name'   => 'required',
             'slug'   => 'required|unique:posts',
             'status' => 'required',
-            'file'   => 'image',
-            'archivo' => 'pdf'
+            'file'   => 'image|max:3000',
+            'archivo.*' => 'required|file|mimes:pdf'
         ];
 
         if($oferta){

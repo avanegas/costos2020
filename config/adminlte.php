@@ -311,6 +311,24 @@ return [
 
         ['header' => 'OPCIONES DE COSTOS'],
         [
+            'text'    => 'Grupos de Datos',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Grupo de Equipos',
+                    'route'  => 'admin.grupo_equipos.index',
+                ],
+                [
+                    'text' => 'Grupo de Materiales',
+                    'route'  => 'admin.grupo_materials.index',
+                ],
+                [
+                    'text' => 'Grupo de Mano de obra',
+                    'route'  => 'admin.grupo_obreros.index',
+                ],
+            ],
+        ],
+        [
             'text'    => 'Datos',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [

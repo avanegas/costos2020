@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\GrupoEquipo;
 use App\Models\Equipo;
 use App\Http\Requests\EquipoRequest;
-use Illuminate\Support\Facades\Storage;
 
 class EquipoController extends Controller
 {
@@ -21,7 +20,7 @@ class EquipoController extends Controller
 
     public function index()
     {
-        return view('admin.equipos.index');        //
+        return view('admin.equipos.index');
     }
 
     public function create()
@@ -48,7 +47,7 @@ class EquipoController extends Controller
 
     public function update(EquipoRequest $request, Equipo $equipo)
     {
-        $this->authorize('author', $equipo);
+        /*$this->authorize('author', $equipo);*/
 
         $equipo->update($request->all());
 
@@ -57,7 +56,7 @@ class EquipoController extends Controller
 
     public function destroy(Equipo $equipo)
     {
-        $this->authorize('author', $equipo);
+        /*$this->authorize('author', $equipo);*/
 
         $equipo->delete();
 

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EquipoRequest extends FormRequest
+class TransporteRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,10 +14,10 @@ class EquipoRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'grupo_equipo_id' => 'required',
-            'name'   => 'required',
-            'marca'  => 'required',
-            'tipo'   => 'required',
+            'zona_id' => 'required',
+            'name'    => 'required',
+            'unidad'  => 'required',
+            'tipo'  => 'required',
             'tarifa' => 'required'
         ];
 

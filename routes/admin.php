@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ZonaController;
 use App\Http\Controllers\Admin\GroupController;
 
+use App\Http\Controllers\Admin\GrupoEquipoController;
+use App\Http\Controllers\Admin\GrupoMaterialController;
+use App\Http\Controllers\Admin\GrupoObreroController;
 use App\Http\Controllers\Admin\EquipoController;
 use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\ObreroController;
@@ -37,6 +40,9 @@ Route::resource('categories', CategoryController::class)->except('show')->names(
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 Route::resource('posts', PostController::class)->except('show')->names('admin.posts');
 
+Route::resource('grupo_equipos', GrupoEquipoController::class)->except('show')->names('admin.grupo_equipos');
+Route::resource('grupo_materials', GrupoMaterialController::class)->except('show')->names('admin.grupo_materials');
+Route::resource('grupo_obreros', GrupoObreroController::class)->except('show')->names('admin.grupo_obreros');
 Route::resource('equipos', EquipoController::class)->except('show')->names('admin.equipos');
 Route::resource('materials', MaterialController::class)->except('show')->names('admin.materials');
 Route::resource('obreros', ObreroController::class)->except('show')->names('admin.obreros');

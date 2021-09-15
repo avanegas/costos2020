@@ -31,7 +31,7 @@ class OfertaController extends Controller
 
     public function store(OfertaRequest $request)
     {
-        return $request->all();
+        dd($request->all());
         /*
         return $request->all();
         return $request->file('file');
