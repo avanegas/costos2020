@@ -49,13 +49,13 @@
                                 <p class="text-base text-gray-700 ">{{ $oferta->descripcion }}</p>
                             </div>
 
-                            <a href="{{url('ofertas', $oferta)}}">
-                                <div class="px-2 pt-2 pb-2">
-                                    <span class="inline-block px-2 py-1 mb-2 mr-2 text-sm font-bold text-blue-700 bg-yellow-200 rounded-full">{{$oferta->updated_at->diffForHumans()}}</span>
-                                    <span class="inline-block px-2 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">TWITTER</span>
-                                    <span class="inline-block px-2 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ $oferta->file }}</span>
-                                </div>
-                            </a>
+                            <div class="px-2 pt-2 pb-2">
+                                <span class="inline-block px-2 py-1 mb-2 mr-2 text-sm font-bold text-blue-700 bg-yellow-200 rounded-full">{{$oferta->updated_at->diffForHumans()}}</span>
+                                <span class="inline-block px-2 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">TWITTER</span>
+                                <span class="inline-block px-2 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-green-200 rounded-full">
+                                    <a href="storage/archivos/{{$oferta->file}}" target="blanck_"> {{ $oferta->file }} </a>
+                                </span>
+                            </div>
 
                             <div class="flex mb-4 space-x-3 text-sm font-medium">
                                 <div class="flex flex-auto space-x-3">

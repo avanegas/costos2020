@@ -6,12 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class OfertaRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-
     public function authorize()
     {
         return true;
@@ -34,7 +28,6 @@ class OfertaRequest extends FormRequest
 
         if($this->status=="PUBLISHED"){
             $rules = array_merge($rules, [
-                'user_id'     => 'required',
                 'unidad'      => 'required',
                 'descripcion' => 'required',
                 'stock'       => 'required',

@@ -115,8 +115,8 @@
     <div class="col">
         <div class="form-group">
             <label for="file">Cambiar archivo PDF</label>
-            <input type="file" name="archivo" id="archivo" class="form-control-file @error('archivo') is-invalid @enderror">
-            @error('archivo')
+            <input type="file" name="pdf" id="pdf" class="form-control-file @error('pdf') is-invalid @enderror">
+            @error('pdf')
                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
             @enderror
         </div>
@@ -124,8 +124,8 @@
     @else
         <div class="form-group">
             <label for="file">Archivo PDF</label>
-            <input type="file" name="archivo" id="archivo" class="form-control-file @error('archivo') is-invalid @enderror">
-            @error('archivo')
+            <input type="file" name="pdf" id="pdf" class="form-control-file @error('pdf') is-invalid @enderror">
+            @error('pdf')
             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
             @enderror
         </div>

@@ -13,7 +13,7 @@
         <div class="col">
             @if($search !=='')
                 <button wire:click="clear" class="form-control w-100">X</button>
-            @endif   
+            @endif
         </div>
     </div>
 
@@ -34,12 +34,12 @@
                         <td>{{$permission->id}}</td>
                         <td>{{$permission->name}}</td>
                         <td>{{$permission->description}}</td>
-                        <td width="10px">
+                        <td style="width:10px">
                             @can('admin.permissions.edit')
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.permissions.edit', $permission)}}">Editar</a>
                             @endcan
                         </td>
-                        <td width="10px">
+                        <td style="width:10px">
                             @can('admin.permissions.destroy')
                                 <form action="{{route('admin.permissions.destroy', $permission)}}" method="POST">
                                     @csrf

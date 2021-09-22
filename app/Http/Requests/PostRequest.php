@@ -6,20 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PostRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     *
-     * Para que un usuario no autorizado cambie los datos
-     *
-     *   if($this->user_id == auth()->user()->id){
-     *       return true;
-     *   }else{
-     *       return false;
-     *   }
-     */
-
     public function authorize()
     {
         return true;

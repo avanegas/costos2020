@@ -12,6 +12,7 @@
 
             <form method="POST" action="{{ route('admin.ofertas.store')}}" enctype="multipart/form-data">
                 @csrf
+                <input id="user_id" type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 
                 @include('admin.ofertas.partials.form')
 

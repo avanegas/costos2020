@@ -38,10 +38,10 @@
                         <td>{{$grupo->name}}</td>
                         <td>{{$grupo->description}}</td>
                         <td>{{$grupo->created_at->diffForHumans()}}</td>
-                        <td width="10px">
+                        <td style="width:10px">
                             <a class="btn btn-primary btn-sm" href="{{route('admin.grupo_obreros.edit', $grupo)}}">Editar</a>
                         </td>
-                        <td width="10px">
+                        <td style="width:10px">
                             <form action="{{route('admin.grupo_obreros.destroy', $grupo)}}" method="POST">
                                 @csrf
                                 @method('DELETE')

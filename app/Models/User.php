@@ -51,10 +51,10 @@ class User extends Authenticatable
             return;
         }
 
-        return $query->where('name', 'LIKE', "%{$termino}%")
-            ->orWhere('email', 'LIKE',  "%{$termino}%")
+        return $query->where('name', 'LIKE', "%$termino%")
+            ->orWhere('email', 'LIKE',  "%$termino%")
             ->orWhereHas('groups', function($query2) use ($termino){
-                $query2->where('name', 'like', "%{$termino}%");
+                $query2->where('name', 'like', "%$termino%");
             });
     }
 
@@ -93,5 +93,10 @@ class User extends Authenticatable
     public function image(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function ofertas(): HasMany
+    {
+        return $this->hasMany(Oferta::class);
     }
 }

@@ -13,7 +13,7 @@
         <div class="col">
             @if($search !=='')
                 <button wire:click="clear" class="form-control w-100">X</button>
-            @endif   
+            @endif
         </div>
     </div>
 
@@ -36,19 +36,19 @@
                             <td>{{$zona->user->name}}</td>
                             <td>{{$zona->name}}</td>
                             <td>{{$zona->description}}</td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 @can('admin.zonas.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.zonas.edit', $zona)}}">Editar</a>
                                 @endcan
                             </td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 @can('admin.zonas.destroy')
                                     <form action="{{route('admin.zonas.destroy', $zona)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
-                                @endcan    
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

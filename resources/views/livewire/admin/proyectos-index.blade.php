@@ -13,7 +13,7 @@
         <div class="col">
             @if($search !=='')
                 <button wire:click="clear" class="form-control w-100">X</button>
-            @endif   
+            @endif
         </div>
     </div>
 
@@ -38,12 +38,12 @@
                             <td>{{$proyecto->contratante}}</td>
                             <td>{{$proyecto->ubicacion}}</td>
                             <td>{{$proyecto->oferente}}</td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 @can('admin.proyectos.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.proyectos.edit', $proyecto)}}">Editar</a>
                                 @endcan
                                 </td>
-                            <td width="10px">                           
+                            <td style="width:10px">
                                 @can('admin.proyectos.destroy')
                                     <form action="{{route('admin.proyectos.destroy', $proyecto)}}" method="POST">
                                         @csrf

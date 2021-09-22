@@ -13,7 +13,7 @@
         <div class="col">
             @if($search !=='')
                 <button wire:click="clear" class="form-control w-100">X</button>
-            @endif   
+            @endif
         </div>
     </div>
 
@@ -32,12 +32,12 @@
                         <tr>
                             <td>{{$group->id}}</td>
                             <td>{{$group->name}}</td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 @can('admin.groups.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.groups.edit', $group)}}">Editar</a>
                                 @endcan
                                 </td>
-                            <td width="10px">                           
+                            <td style="width:10px">
                                 @can('admin.groups.destroy')
                                     <form action="{{route('admin.groups.destroy', $group)}}" method="POST">
                                         @csrf

@@ -34,10 +34,10 @@
                             <td>{{$servicio->id}}</td>
                             <td>{{$servicio->name}}</td>
                             <td>{{$servicio->created_at->diffForHumans()}}</td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.servicios.edit', $servicio)}}">Editar</a>
                             </td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 <form action="{{route('admin.servicios.destroy', $servicio)}}" method="POST">
                                     @csrf
                                     @method('DELETE')

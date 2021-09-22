@@ -40,10 +40,10 @@
                         <td>{{$obrero->jornalhora}}</td>
                         <td>{{$obrero->factor}}</td>
                         <td>{{$obrero->created_at->diffForHumans()}}</td>
-                        <td width="10px">
+                        <td style="width:10px">
                             <a class="btn btn-primary btn-sm" href="{{route('admin.obreros.edit', $obrero)}}">Editar</a>
                         </td>
-                        <td width="10px">
+                        <td style="width:10px">
                             <form action="{{route('admin.obreros.destroy', $obrero)}}" method="POST">
                                 @csrf
                                 @method('DELETE')

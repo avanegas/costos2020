@@ -11,10 +11,9 @@ class Post extends Model
 
     protected $guarded = [
         'id','created_at','updated_at'
-        //'name', 'slug', 'status', 'excerpt', 'body', 'category_id','user_id',
+        //'user_id', 'name', 'slug', 'status', 'excerpt', 'body', 'category_id'
     ];
 
-    // Relacion uno a muchos inversa
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -25,13 +24,11 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    //relacion uno a uno polimorfica
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
     }
 
-    //Relacion muchos a muchos polimorfica
     public function tags()
     {
         return $this->morphToMany(Tag::class,'taggable');

@@ -13,7 +13,7 @@
         <div class="col">
             @if($search !=='')
                 <button wire:click="clear" class="form-control w-100">X</button>
-            @endif   
+            @endif
         </div>
     </div>
 
@@ -34,12 +34,12 @@
                              <td>{{$tag->id}}</td>
                              <td>{{$tag->name}}</td>
                              <td>{{$tag->color}}</td>
-                             <td width="10px">
+                             <td style="width:10px">
                                 @can('admin.tags.edit')
                                     <a href="{{route('admin.tags.edit', $tag)}}" class="btn btn-sm btn-primary">Edit</a>
                                 @endcan
                              </td>
-                             <td width="10px">
+                             <td style="width:10px">
                                 @can('admin.tags.destroy')
                                     <form action="{{route('admin.tags.destroy', $tag)}}" method="POST">
                                         @csrf

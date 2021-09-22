@@ -9,8 +9,9 @@ class Oferta extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id', 'name', 'slug', 'unidad', 'descripcion', 'stock', 'precio', 'file', 'status', 'archivo'
+    protected $guarded = [
+        'id','created_at','updated_at'
+        //'user_id', 'name', 'slug', 'unidad', 'descripcion', 'stock', 'precio', 'file', 'status'
     ];
 
     public function user()

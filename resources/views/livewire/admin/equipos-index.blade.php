@@ -42,10 +42,10 @@
                             <td>{{$equipo->tipo}}</td>
                             <td>{{$equipo->tarifa}}</td>
                             <td>{{$equipo->created_at->diffForHumans()}}</td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.equipos.edit', $equipo)}}">Editar</a>
                             </td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 <form action="{{route('admin.equipos.destroy', $equipo)}}" method="POST">
                                     @csrf
                                     @method('DELETE')

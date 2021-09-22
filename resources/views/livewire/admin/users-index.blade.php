@@ -14,21 +14,21 @@
         <div class="col">
             @if($search !=='')
                 <button wire:click="clear" class="form-control w-100">X</button>
-            @endif   
+            @endif
         </div>
     </div>
-    
+
     @if ($users->count())
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th width="10px">ID</th>
+                        <th style="width:10px">ID</th>
                         <th>Nombres</th>
                         <th>Email</th>
                         <th>Roles</th>
                         <th>Permisos</th>
-                        <th width="10px"></th>
+                        <th style="width:10px"></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -34,10 +34,10 @@
                             <td>{{$oferta->id}}</td>
                             <td>{{$oferta->name}}</td>
                             <td>{{$oferta->created_at->diffForHumans()}}</td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.ofertas.edit', $oferta)}}">Editar</a>
                             </td>
-                            <td width="10px">
+                            <td style="width:10px">
                                 <form action="{{route('admin.ofertas.destroy', $oferta)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
