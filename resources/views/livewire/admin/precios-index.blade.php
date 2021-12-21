@@ -23,7 +23,7 @@
                 <thead>
                 <tr>
                     <th>Grupo</th>
-                    <th>Name</th>
+                    <th>Rubro</th>
                     <th>Unidad</th>
                     <th>Especificación</th>
                     <th>Costo</th>
@@ -37,11 +37,13 @@
                             <td>{{$precio->name}}</td>
                             <td>{{$precio->unidad}}</td>
                             <td>{{$precio->detalle}}</td>
-                            <td>{{$precio->directo}}</td>                            <td width="10px">
+                            <td>{{$precio->directo}}</td>
+                            <td style="width:10px">
                                 @can('admin.precios.edit')
-                                    <a class="btn btn-primary btn-sm" href="{{route('admin.precios.edit', $precio)}}">Editar</a>
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.precios.edit', $precio)}}">
+                                        <i class="fas fa-edit"></i></a>
                                 @endcan
-                                </td>
+                            </td>
                             <td style="width:10px">
                                 @can('admin.precios.destroy')
                                     <form action="{{route('admin.precios.destroy', $precio)}}" method="POST">

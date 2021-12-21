@@ -36,7 +36,7 @@
                                 @can('admin.groups.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.groups.edit', $group)}}">Editar</a>
                                 @endcan
-                                </td>
+                            </td>
                             <td style="width:10px">
                                 @can('admin.groups.destroy')
                                     <form action="{{route('admin.groups.destroy', $group)}}" method="POST">

@@ -13,7 +13,7 @@
 
                         <article class="w-full h-80 bg-cover bg-center" style="background-image:url(@if($post->image) {{Storage::url($post->image->url)}} @else https://cdn.pixabay.com/photo/2020/02/06/20/01/university-library-4825366_960_720.jpg @endif)">
                             <div class="w-full h-full px-8 flex flex-col justify-center">
-                                <p class="text-sm text-white font-bold">
+                                <p class="text-2xl text-yellow-500  leading-6  font-bold">
                                     <a href="{{route('posts.category',$post->category)}}" class="uppercase"> {{$post->category->name}} </a>
                                 </p>
                                 <p class="text-4x1 text-white leading-6 font-bold mt-2 uppercase">
@@ -30,19 +30,19 @@
                         <div class="px-4 py-4 md:px-10">
                             RESUMEN: <p class="py-2">{!! $post->excerpt !!}</p>
                             <div class="flex flex-wrap pt-8">
-                                <div class="w-full md:w-1/3 text-sm font-medium">
+                                <div class="w-full md:w-1/2 text-sm font-medium">
                                     {{$post->created_at->format('l jS \\of F Y h:i A')}}
                                 </div>
-                                <div class="2/3">
+                                <div class="1/2">
                                     <div class="text-sm font-medium">
-                                        SHARE:
+                                        PARTICIPACION:
                                         <a href="" class="text-blue-700 px-1 ">
                                             FACEBOOk
                                         </a>
-                                        <a href="" class="text-blue-500 px-1 ">
+                                        <a href="" class="text-blue-700 px-1 ">
                                             TWITTER
                                         </a>
-                                        <a href="{{route('posts.show',$post)}}" class="text-blue-600 px-1 ">
+                                        <a href="{{route('posts.show',$post)}}" class="text-blue-700 px-1 ">
                                             Comentarios: {{$post->comments->count()}}
                                         </a>
                                     </div>

@@ -24,46 +24,46 @@
 
         <div class="bg-white">
             <div class="px-4">
-            @if($equipos->count())
-                <table class="min-w-full divide-y divide-gray-200"> <!--<table class="table-fixed w-full">-->
-                    <thead>
-                        <tr>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Grupo</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Marca</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Tarífa</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
-                            <th class="px-6 py-3 bg-gray-50">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($equipos as $key=>$equipo)
-                        <tr>
-                            <td class="px-2 py-3">{{ $equipo->grupo_equipo->name }}</td>
-                            <td>{{ $equipo->name }}</td>
-                            <td>{{ $equipo->marca }}</td>
-                            <td>{{ $equipo->tipo }}</td>
-                            <td>{{ $equipo->tarifa }}</td>
-                            <td>{{ $equipo->updated_at->format('dMY') }}</td>
-                            <td>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                                        Proveedor
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                @if($equipos->count())
+                    <table class="min-w-full divide-y divide-gray-200"> <!--<table class="table-fixed w-full">-->
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Grupo</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Marca</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Tarífa</th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+                                <th class="px-6 py-3 bg-gray-50">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach($equipos as $key=>$equipo)
+                            <tr>
+                                <td class="px-2 py-3">{{ $equipo->grupo_equipo->name }}</td>
+                                <td>{{ $equipo->name }}</td>
+                                <td>{{ $equipo->marca }}</td>
+                                <td>{{ $equipo->tipo }}</td>
+                                <td>{{ $equipo->tarifa }}</td>
+                                <td>{{ $equipo->updated_at->format('dMY') }}</td>
+                                <td style="width:10px">
+                                    <button class="bg-green-300 hover:bg-blue-700 text-xs py-1 px-4 rounded">
+                                            Proveedor
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
 
-                <div class="mt-4 mb-2">
-                    {{$equipos->links()}}
-                </div>
-            @else
-                <div class="bg-white px-4 py-3 border-t border-gray-200 text-gray-500 sm:px-6">
-                    No hay resultados para la busqueda "{{$search}}" en la página {{$page}} al mostrar {{$perPage}} equipos por página.
-                </div>
-            @endif
+                    <div class="mt-4 mb-2">
+                        {{$equipos->links()}}
+                    </div>
+                @else
+                    <div class="bg-white px-4 py-3 border-t border-gray-200 text-gray-500 sm:px-6">
+                        No hay resultados para la busqueda "{{$search}}" en la página {{$page}} al mostrar {{$perPage}} equipos por página.
+                    </div>
+                @endif
             </div>
         </div>
     </div>

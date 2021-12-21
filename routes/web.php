@@ -29,3 +29,9 @@ Route::resource('servicios', ServicioController::class)->only('index', 'show')->
 Route::get('file-import-export', [PrecioController::class, 'fileImportExport']);
 Route::post('file-import', [PrecioController::class, 'fileImport'])->name('file-import');
 Route::get('file-export', [PrecioController::class, 'fileExport'])->name('file-export');
+
+
+//Prueba
+Route::get('/inicio', function () {
+    return view('inicio');
+})->name('inicio');

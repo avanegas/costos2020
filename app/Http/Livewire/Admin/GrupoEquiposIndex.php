@@ -9,9 +9,7 @@ use Livewire\WithPagination;
 class GrupoEquiposIndex extends Component
 {
     use WithPagination;
-
     protected $paginationTheme = "bootstrap";
-
     protected $queryString = [
         'search' => ['except' => ''],
         'perPage' => ['except' => '10']
