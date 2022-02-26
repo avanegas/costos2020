@@ -17,6 +17,7 @@ class ListasSearch extends Component
         'perPage' => ['except' => '10']
         ];
 
+    public $listas = 'equipos';
     public $search = '';
     public $perPage = '10';
 
@@ -27,14 +28,18 @@ class ListasSearch extends Component
 
     public function render()
     {
-        $searchParams = '%'.$this->search.'%';
+
+        if ($this->listas == 'equipos'){
+
+            $searchParams = '%'.$this->search.'%';
 
             $equipos = Equipo::where('name','LIKE', $searchParams)
                         ->orWhere('marca','LIKE',$searchParams)
                         ->latest('id')
                         ->paginate($this->perPage);
 
-        return view('livewire.admin.listas-search', compact('equipos'));
+            return view('livewire.admin.listas-search', compact('equipos'));
+        }
     }
 
     public function clear()

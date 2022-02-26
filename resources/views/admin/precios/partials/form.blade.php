@@ -70,7 +70,7 @@
                             <!--
                             <td click="abrirModal(lista='equipos',indice=equipo.equipo_id)"  data-toggle="modal" data-target="#exampleModalLong">
                             -->
-                            <td >
+                            <td  data-toggle="modal" data-target="#exampleModalLong">
                                 <input id="equipo_id" type="text" class="form-control @error('equipo_id') is-invalid @enderror" placeholder='Ingrese el código' name="equipo_id" value="{{ isset($equipo->equipo_id)?$equipo->equipo_id:old('name') }}" autocomplete=off autofocus>
                                 @error('equipo_id')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
                             </td>
